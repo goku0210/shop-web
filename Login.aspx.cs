@@ -13,28 +13,35 @@ using System.Windows.Forms;
 
     public partial class Login : System.Web.UI.Page
     {
+        private const string ConnectionString = "Data Source=DESKTOP-4LU2SLJ\\SQLEXPRESS;Initial Catalog=accounts;Integrated Security=True";
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-4LU2SLJ\\SQLEXPRESS;Initial Catalog=account;Integrated Security=True"))
+             String username, password;
+             username = txt_username.Text;
+             password = txt_password.Text;
+
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
-                connection.Open();
-                string query = "SELECT * FROM [acc] WHERE username = @username AND password = @password";
-                using (SqlCommand cmd = new SqlCommand(query, connection))
+                String query = "SELECT COUNT(*) FROM Login WHERE username = @username AND password = @password";
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    cmd.Parameters.AddWithValue("@username", username.Text);
-                    cmd.Parameters.AddWithValue("@password", password.Text);
-                    string count = (cmd.ExecuteScalar().ToString());
-                    if (count == query)
+                    command.Parameters.AddWithValue("@username", username);
+                    command.Parameters.AddWithValue("@password", password);
+                    connection.Open();
+                    int count = (int)command.ExecuteScalar();
+                    if (count > 0)
                     {
-                        MessageBox.Show("Login Successful!");
+                        // Login successful
+                        Response.Redirect("Default.aspx");
                     }
                     else
                     {
-                        MessageBox.Show("Login Failed!");
+                        // Login failed
+                        MessageBox.Show("Invalid username or password.");
                     }
                 }
             }
