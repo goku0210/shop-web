@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Windows.Forms;
 
 public partial class Registration : System.Web.UI.Page
 {
@@ -16,41 +17,25 @@ public partial class Registration : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        Reg();
-    }
+        // Create a connection to the SQL Server database
+        SqlConnection conn = new SqlConnection("Data Source=DESKTOP-4LU2SLJ\\SQLEXPRESS;Initial Catalog=userreglog;Integrated Security=True");
+        conn.Open();
 
-    private void Reg()
-    {
-        try
-        {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ShopWebsiteCon"].ConnectionString);
-            SqlCommand cmd = new SqlCommand("Insert into userm(Name,Lastname,Email,Password) values(@Name,@Lastname,@Email,@Password))", con);
-            if (con.State == ConnectionState.Closed)
-            {
-                con.Open();
-            }
-            cmd.Parameters.AddWithValue("@Name", txtname.Text);
-            cmd.Parameters.AddWithValue("@Lastname", txtlname.Text);
-            cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
-            cmd.Parameters.AddWithValue("@Password", txtpass.Text);
+        // Create a command to insert a new user into the database
+        SqlCommand cmd = new SqlCommand("INSERT INTO reglog (username, Mobilenum, email, password) VALUES (@username, @Mobilenum, @email, @password)", conn);
 
-            cmd.ExecuteNonQuery();
-            con.Close();
-            clr();
-            Response.Write("<script>alert('Success')</script>");
+        // Set the parameters of the command to the values entered by the user
+        cmd.Parameters.AddWithValue("@username", txt_username.Text);
+        cmd.Parameters.AddWithValue("@Mobilenum", txt_num.Text);
+        cmd.Parameters.AddWithValue("@email", txt_email.Text);
+        cmd.Parameters.AddWithValue("@password", txt_password.Text);
 
-        }
-        catch (Exception e)
-        {
-            Response.Write("<script>alert('"+e.Message+"')</script>");
-        }
-    }
+        // Execute the command to insert the new user into the database
+        cmd.ExecuteNonQuery();
 
-    private void clr()
-    {
-        txtname.Text = string.Empty;
-        txtlname.Text = string.Empty;
-        txtEmail.Text = string.Empty;
-        txtname.Focus();
+        // Close the database connection
+        conn.Close();
+        MessageBox.Show("Registered Successfully");
+        Response.Redirect("Login.aspx");
     }
 }

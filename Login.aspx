@@ -15,29 +15,27 @@
                 <img src="img/logo.png" width="250px" alt="">       
             </div>
         </div>     
-            <div class="form" style="background-color: #FFFF00">
+            <div class="form" style="background-color: #333333">
                 <h2>Login Here</h2>
 &nbsp;
                 &nbsp;&nbsp;<br />
-&nbsp;<asp:Label ID="Label1" runat="server" Text="User Name"></asp:Label>
-                <asp:TextBox ID="username" runat="server" Width="247px" BackColor="#FFFFCC" 
-                    BorderColor="Black" ForeColor="Black" Height="23px"></asp:TextBox>
+&nbsp;<asp:Label ID="Label1" runat="server" Text="User Name" ForeColor="Black"></asp:Label>
+                <asp:TextBox ID="txt_username" runat="server" Width="247px" BackColor="#FFFFCC" 
+                    BorderColor="#CCCCCC" ForeColor="Black" Height="23px"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <br />
                 <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;<br />
-                <asp:TextBox ID="password" runat="server" Width="246px" BackColor="White" 
-                    BorderColor="Black" ForeColor="Black" Height="25px"></asp:TextBox>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="Button1" runat="server" Text="Login" BackColor="Black" 
-                    onclick="Button1_Click" Height="25px" Width="53px" />
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-                    ConnectionString="<%$ ConnectionStrings:accountConnectionString4 %>" 
-                    SelectCommand="SELECT * FROM [acc]"></asp:SqlDataSource>
+                <asp:TextBox ID="txt_password" runat="server" Width="246px" BackColor="White" 
+                    BorderColor="White" ForeColor="Black" Height="25px" TextMode="Password"></asp:TextBox>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button 
+                    ID="Button1" runat="server" Text="Login" BackColor="Red" 
+                    onclick="Button1_Click" Height="45px" Width="70px" CssClass="btnn" 
+                    ForeColor="White" />
+                &nbsp;&nbsp;
+                
                 <p class="link">Don't have an account<br>
                 <a href="Registration.aspx">Sign up </a> here</a></p>
-                
-            </div>
     </div>
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
     </form>

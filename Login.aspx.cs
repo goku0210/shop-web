@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
     public partial class Login : System.Web.UI.Page
     {
-        private const string ConnectionString = "Data Source=DESKTOP-4LU2SLJ\\SQLEXPRESS;Initial Catalog=accounts;Integrated Security=True";
+        private const string ConnectionString = "Data Source=DESKTOP-4LU2SLJ\\SQLEXPRESS;Initial Catalog=userreglog;Integrated Security=True";
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -26,7 +26,7 @@ using System.Windows.Forms;
 
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
-                String query = "SELECT COUNT(*) FROM Login WHERE username = @username AND password = @password";
+                String query = "SELECT COUNT(*) FROM reglog WHERE username = @username AND password = @password";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@username", username);
