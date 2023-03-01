@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Advertisements>
+  <Ad>
+    <ImageUrl>http://localhost:60582/ShoppingWebsite/img/MF.jpg</ImageUrl>
+  </Ad>
+  <Ad>
+    <ImageUrl>http://localhost:60582/ShoppingWebsite/img/B4.jpeg</ImageUrl>
+  </Ad>
+  <Ad>
+    <ImageUrl>http://localhost:60582/ShoppingWebsite/img/B6.jpeg</ImageUrl>
+  </Ad>
+</Advertisements>

@@ -3,10 +3,12 @@
     padding: 0;
     margin: 0;
     
+    
 }
 
-nav{
-    padding: 20px 50px;
+nav
+{
+    padding: 20px 30px;
 }
 
 .navbar
@@ -37,11 +39,12 @@ nav{
     outline: none;
 }
 
-.search-btn{
-    width: 20%;
-    height: 40px;
+.search-btn
+{
+    width:20%;
+    height:40px;
     padding: 10px 20px;
-    border: none;
+    border:none;
     outline: none;
     cursor: pointer;
     background: Black;
@@ -76,7 +79,8 @@ nav{
     color: Red;
 }
 
-.navcontain{
+.navcontain
+{
     display: flex;
     justify-content: center;
     padding: 20px 80px;
@@ -104,8 +108,10 @@ nav{
 }
 
 .sliderItem{
-    width: 99%;
-    height: 1000px;
+    width: 1320px;
+    height: 600px;
+    position: relative;
+    margin: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -117,9 +123,9 @@ nav{
 .sliderItem h5{
     font-size: 50px;
     justify-content: center;
-    text-align: center;
-    
+    text-align: center;   
 }
+
 
 .imageitem
 {
@@ -133,6 +139,8 @@ nav{
     height:400px;
     display: block;
     cursor: pointer;
+    top: 0px;
+    left: 0px;
 }
 
 
@@ -188,7 +196,8 @@ nav{
     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.6);
 }
 
-.pro img{
+.pro img
+{
     width: 100%;
     border-radius: 20px;
     height: 250px;
@@ -198,7 +207,8 @@ nav{
     color: #ffd700;
 }
 
-.pro .cart1{
+.pro .cart1
+{
     width: 40px;
     height: 40px;
     line-height: 40px;
@@ -210,12 +220,14 @@ nav{
     position: absolute;
     bottom: 20px;
     right: 10px;
+    
 }
 .sale{
     display: flex;
     text-align: center;
     justify-content: center;  
 }
+
 .sale img{
     width: 100%;
     height: 300px;
@@ -338,7 +350,18 @@ nav{
 .form input:focus{
     outline: none;
 }
-
+.newItem
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:1350px;
+    height: 600px;
+    position: relative;
+    background-position: center center;
+    background-repeat: no-repeat; 
+    background-attachment: inherit;
+}
 .cart-details
 {
     width: 100%;

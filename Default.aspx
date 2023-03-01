@@ -11,9 +11,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"/>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min/js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootsrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function msg() {
+            window.location = "/Addtocart.aspx";
+        }
+    </script>
+    <script type="text/javascript" src="addtocart.js"></script>
+    <style type="text/css">
+        #price
+        {
+            width: 43px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
+        
     <nav>
         <div class="navbar">
             <div class="navitem">
@@ -21,10 +36,18 @@
             </div>
             <div class="navitem">
                 <div class="search">
-                    <input type="text" placeholder="Search brand,products" class="searchbox">
-                    <button class="search-btn">Search</button>
-                    <a href="Login.aspx"><img src="img/sig.png" alt="" width="40px" class="sign"></a>
-                    <a href="Cart.aspx"> <img src="img/ca.png" alt="" width="50px" class="cart"></a>
+                    &nbsp;
+                    <input type="text" placeholder="Search brand,products" class="searchbox" >
+                    <asp:Button ID="Button1" runat="server" CssClass="search-btn" Text="Search" />
+                    <br />
+                    
+&nbsp;<a href="Login.aspx"><img src="img/sig.png" alt="" width="40px" class="sign"></a>
+                    <a href="Cart.aspx"><img src="img/ca.png" alt="" width="50px" class="cart"></a>
+                    <br />
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+                        ConnectionString="<%$ ConnectionStrings:shopcartsConnectionString %>" 
+                        SelectCommand="SELECT * FROM [carts]"></asp:SqlDataSource>
+                    
                 </div> 
             </div>
         </div>
@@ -33,34 +56,40 @@
             <li><a href="Product.aspx">Products</a></li>
             <li><a href="new_arr.aspx">New Arrivals</a></li>
             <li><a href="About_us.aspx">About Us</a></li>
-            <li><a href="Contact.aspx">Contacts</a></li>       
-        </ul>
+            <li><a href="Contact.aspx">Contacts</a></li>
+        </ul>     
         </nav>
-
-    <div class="sliderItem" 
         
-        style="background-image: url('img/IBA.webp'); position: inherit; background-color: #FFFFFF;">
-        <h5>Best Fashion Collection <br> Of All Times <br> </h5>  <br>      
-    </div>
+    <div class="sliderItem">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <asp:AdRotator ID="AdRotator1" runat="server" AdvertisementFile="~/slider.xml" 
+                    CssClass="sliderItem"/> 
+                <asp:Timer ID="Timer1" runat="server" Interval="2500"></asp:Timer>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </div>     
     <br />
-
+    <br />
     <div class="imageitem">
         <a href="Shirts.aspx">
-            <img src="img/SS.jpg" alt="" style="height: 282px; width: 693px"/>
+            <img src="img/SS.jpg" alt="" style="height: 282px; width :693px"/>
             <div class="caption center">Shirts</div>
-        </a>        
+        </a>
     </div>
     <div class="imageitem">
         <a href="T-Shirts.aspx">
-            <img src="img/TS.jpg" alt="" style="height: 282px; width: 693px"/>
+            <img src="img/TS.jpg" alt="" style="height: 282px; width :693px"/>
             <div class="caption center">T-Shirts</div>
-        </a>        
+        </a>
     </div>
     <div class="imageitem">
         <a href="Pants.aspx">
-            <img src="img/PS.jpg" alt="" style="height: 282px; width: 693px"/>
+            <img src="img/SS.jpg" alt="" style="height: 282px; width :693px"/>
             <div class="caption center">Pants</div>
-        </a>        
+        </a>
     </div>
 
     <div class="products">
@@ -70,31 +99,29 @@
     <div class="pro-container">
         <div class="pro" onclick="window.location.href='sproduct.aspx';">     
             <img src="img/S1.jpeg" alt=""/>
-            <h5>Shirt</h5>
+            <h5>Skreened Shirt</h5>
             <div class="star">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
             </div>
-            <h4>$400</h4>
-            <a href="Cart.aspx"><img src="img/sc.png" alt="" width="10px" class="cart1"></a>
+            <h4>400</h4>
+            <a href="Cart.aspx"><img src="img/sc.png" alt="" width="10px" class="cart1" /></a>
         </div>
         <div class="pro" onclick="window.location.href='sproduct2.aspx';">
             <img src="img/S2.jpg" alt="">
             <h5>Party Shirt</h5>
-            <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
+            <div class="star">         
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
             </div>
-            <h4>$700</h4>
-            <a href="#"><img src="img/sc.png" alt="" width="10px" class="cart1"></a>
+            <h4>700</h4>
+            <a href="Cart.aspx"><img src="img/sc.png" alt="" width="10px" class="cart1" /></a>
         </div>
         <div class="pro" onclick="window.location.href='sproduct3.aspx';">
-            <img src="img/S3.png" alt="">
+            <img src="img/S3.jpg" alt="">
             <h5>Puma Checkered shirt</h5>
             <div class="star">
                 <i class="fas fa-star"></i>
@@ -103,7 +130,7 @@
                 <i class="fas fa-star"></i>
             </div>
             <h4>$500</h4>
-            <a href="#"><img src="img/sc.png" alt="" width="10px" class="cart1"></a>
+            <a href="Cart.aspx"><img src="img/sc.png" alt="" width="10px" class="cart1" /></a>
         </div>
         <div class="pro" onclick="window.location.href='sproduct4.aspx';">
             <img src="img/S4.jpeg" alt="" >
@@ -119,7 +146,7 @@
         </div>
         <div class="pro" onclick="window.location.href='sproduct5.aspx';">
             <img src="img/S5.jpg" alt="">
-            <h5>White Fashion Shirt</h5>
+            <h5>Off-White Fashion Shirt</h5>
             <div class="star">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -142,7 +169,7 @@
             <a href="#"><img src="img/sc.png" alt="" width="10px" class="cart1"></a>
         </div>
         <div class="pro" onclick="window.location.href='sproduct7.aspx';">
-            <img src="img/S7.png" alt="">
+            <img src="img/S7.jpg" alt="" width="50px">
             <h5>Sport's Jacket</h5>
             <div class="star">
                 <i class="fas fa-star"></i>
@@ -217,8 +244,16 @@
             <a href="#"><img src="img/sc.png" alt="" width="10px" class="cart1"></a>
         </div>
     </div>
+    <br />
+
     <div class="sale">
-        <img src="img/MF.jpg" alt="">
+        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+            <ContentTemplate>
+                <asp:AdRotator ID="AdRotator2" runat="server" AdvertisementFile="~/banner.xml" 
+                    CssClass="sale" /> 
+                <asp:Timer ID="Timer2" runat="server" Interval="2500"></asp:Timer>
+            </ContentTemplate>
+        </asp:UpdatePanel>
     </div>
 
     <div class="prod">
@@ -273,6 +308,7 @@
             <h4>$600</h4>
             <a href="#"><img src="img/sc.png" alt="" width="10px" class="cart1"></a>
         </div>
+        
     </div>
     <div class="footer">
         <div class="col">
@@ -282,8 +318,9 @@
             <p><strong>Phone: </strong></p>
             <p><strong>Copyright 2023. All Rights Received</strong></p>
         </div>
+        
     </div>
-    <script src="script.js"></script>
+    <script src="search.js"></script>
     </form>
 </body>
 </html>
