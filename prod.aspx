@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Pants.aspx.cs" Inherits="Pants" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="prod.aspx.cs" Inherits="prod" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -21,17 +21,56 @@
             </div>
             <div class="navitem">
                 <div class="search">
-                    <input type="text" placeholder="Search brand,products" class="searchbox">
-                    <button class="search-btn">Search</button>
-                    <a href="Login.aspx"><img src="img/sig.png" alt="" width="40px" class="sign"></a>
+                    &nbsp;
+                    <asp:TextBox ID="TextBox1" runat="server" placeholder="Search brand,products" CssClass="searchbox" Height="17px" 
+                        Width="400px"></asp:TextBox>
+                    <br />
+&nbsp;<asp:Button ID="Button1" runat="server" CssClass="search-btn" Text="Search" 
+                        onclick="Button1_Click" />
+                    <br />
+                    
+&nbsp;<a href="Login.aspx"><img src="img/sig.png" alt="" width="40px" class="sign"></a>
                     <a href="Addtocart.aspx"><img src="img/ca.png" alt="" width="50px" class="cart"></a>
+                    <br />
+                    <br />
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
+                        ConnectionString="<%$ ConnectionStrings:addcartConnectionString4 %>" 
+                        SelectCommand="SELECT * FROM [adcar]"></asp:SqlDataSource>
+                    
+                    <br />
+                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" 
+                        ConnectionString="<%$ ConnectionStrings:addcartConnectionString4 %>" 
+                        SelectCommand="SELECT * FROM [adcar] WHERE ([keywordSearch] LIKE '%' + @keywordSearch + '%')">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="TextBox1" Name="keywordSearch" 
+                                PropertyName="Text" Type="String" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                    
                 </div> 
             </div>
         </div>
+        <ul class="navcontain">
+            <li><a href="index.aspx">Home</a></li>
+            <li><a class="active" href="prod.aspx">Products</a></li>
+            <li><a href="newarr.aspx">New Arrivals</a></li>
+            <li><a href="About_us.aspx">About Us</a></li>
+            <li><a href="Contact.aspx">Contacts</a></li>
+        </ul>     
         </nav>
-        <div class="products">
-            <h2>Pants</h2>
-        </div>
+        
+    <div class="header" 
+        style="background-position: center bottom; background-image: url('img/SB.jpg'); background-repeat: inherit; background-attachment: inherit;">
+        <h5>Shop Now with<br>Latest Trends</h5>
+    </div>
+    <br />
+    <br />
+    <div>
+    
+     <div class="products">
+        <h2>Products</h2>
+    </div>
+        
         <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" 
             onitemcommand="DataList1_ItemCommand" RepeatColumns="4" 
             RepeatDirection="Horizontal" style="margin-right: 53px" Width="857px" 
@@ -65,7 +104,7 @@
                             <asp:ImageButton ID="ImageButton1" runat="server" 
                                 CommandArgument='<%# Eval("designid") %>' Height="30px" 
                                 ImageUrl="~/img/sc.png" Width="30px" BorderColor="Black" 
-                                onclick="ImageButton1_Click" CssClass="btnn" />
+                                onclick="ImageButton1_Click" />
                         </td>
                     </tr>
                     <tr>
@@ -94,17 +133,16 @@
                 </div>
             </ItemTemplate>
         </asp:DataList>
+        
         <br />
         <br />
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:addcartConnectionString6 %>" 
-            SelectCommand="SELECT * FROM [adcar] WHERE ([Category] = @Category)">
+            ConnectionString="<%$ ConnectionStrings:addcartConnectionString2 %>" 
+            SelectCommand="SELECT * FROM [adcar] WHERE ([differ] = @differ)">
             <SelectParameters>
-                <asp:QueryStringParameter Name="Category" QueryStringField="cat" 
-                    Type="String" />
+                <asp:QueryStringParameter Name="differ" QueryStringField="diff" Type="String" />
             </SelectParameters>
         </asp:SqlDataSource>
-    
     <div class="footer">
             <div class="image-section">
                 <img src="img/logo.png" />

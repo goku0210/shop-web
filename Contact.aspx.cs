@@ -11,4 +11,12 @@ public partial class Contact : System.Web.UI.Page
     {
 
     }
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Login.aspx");
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Login.aspx");
+    }
 }

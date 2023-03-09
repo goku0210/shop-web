@@ -10,13 +10,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"/>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/form.css">
 </head>
 <body>
     <form id="form1" runat="server">
     <nav>
         <div class="navbar">
             <div class="navitem">
-                <img src="img/logo.png" width=250px alt="">
+                <a href="Default.aspx"><img src="img/logo.png" width=250px alt=""></a>
             </div>
             <div class="navitem">
                 <div class="search">
@@ -28,253 +29,123 @@
             </div>
         </div>
         </nav>
-        <div class="pro-container">
-        <div class="pro" onclick="window.location.href='sproduct.aspx';">     
-            <img src="img/S1.jpeg" alt=""/>
-            <h5>Shirt</h5>
-            <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
+        <div class="products">
+            <h2>Shirts</h2>
+        </div>
+        
+        <br />
+        <br />
+        <br />
+        <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" 
+             RepeatColumns="4" 
+            RepeatDirection="Horizontal" style="margin-right: 53px" Width="857px" 
+            Height="41px" onitemcommand="DataList1_ItemCommand">
+            <ItemTemplate>
+            <div style="min-width:230px;border-radius: 25px;border:1px solid #000;cursor:pointer;margin:19px 0 15px 10px; padding:10px 25px;width:263px; height: 507px;">
+                &nbsp;<table class="style1">
+                    <tr>
+                        <td class="style6">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Product ID:
+                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("designid") %>'></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="style3">
+                            &nbsp;<asp:Image ID="Image1" runat="server" Height="294px" 
+                                ImageUrl='<%# Eval("productimage") %>' Width="265px" />
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="style4">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("productname") %>' 
+                                Font-Bold="True" Font-Size="Large"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="style6">
+                            <asp:Label ID="Label3" runat="server" Text='<%# Eval("price") %>'></asp:Label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:ImageButton ID="ImageButton1" runat="server" 
+                                CommandArgument='<%# Eval("designid") %>' Height="30px" 
+                                ImageUrl="~/img/sc.png" Width="30px" BorderColor="Black" 
+                                onclick="ImageButton1_Click" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Button ID="Button2" runat="server" 
+                                CommandArgument='<%# Eval("designid") %>' CommandName="viewdetails" 
+                                 Text="Product Details" BorderColor="Black" Height="41px" CssClass="btnn" Width="244px" />
+                            &nbsp; &nbsp;</td>
+                    </tr>
+                </table>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;<br />
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br /> <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+            </ItemTemplate>
+        </asp:DataList>
+        <br />
+        <br />
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:addcartConnectionString6 %>" 
+            SelectCommand="SELECT * FROM [adcar] WHERE ([Category] = @Category)">
+            <SelectParameters>
+                <asp:QueryStringParameter Name="Category" QueryStringField="cat" 
+                    Type="String" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+    
+    <div class="footer">
+            <div class="image-section">
+                <img src="img/logo.png" />
             </div>
-            <h4>$400</h4>
-            <a href="#"><img src="img/sc.png" alt="" width="10px" class="cart1"></a>
+                <div class="con">
+                    <div class="row">
+                        
+                        <div class="footer-col">
+                            <h4>Company</h4>
+                            <ul>
+                                <li><a href="About_us.aspx">about us</a></li>
+                                <li><a href="Contact.aspx">Contacts</a></li>
+                                <li><a href="index.aspx">program</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-col">
+                            <h4>online shop</h4>
+                            <ul>
+                                <li><a href="Shirts.aspx">Shirt</a></li>
+                                <li><a href="T-Shirts.aspx">T-Shirt</a></li>
+                                <li><a href="Pants.aspx">Pants</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4>follow us</h4>
+                            <div class="social-links">
+                                <a href="http://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                                <a href="http://www.twitter.com"><i class="fab fa-twitter"></i></a>
+                                <a href="http://www.instagram.com"><i class="fab fa-instagram"></i></a>
+                                <a href="http://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>        
+        
+
         </div>
-        <div class="pro" onclick="window.location.href='sproduct2.aspx';">
-            <img src="img/S2.jpg" alt="">
-            <h5>Party Shirt</h5>
-            <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-            </div>
-            <h4>$700</h4>
-            <a href="#"><img src="img/sc.png" alt="" width="10px" class="cart1"></a>
-        </div>
-        <div class="pro" onclick="window.location.href='sproduct3.aspx';">
-            <img src="img/S3.png" alt="">
-            <h5>Puma Checkered shirt</h5>
-            <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-            </div>
-            <h4>$500</h4>
-            <a href="#"><img src="img/sc.png" alt="" width="10px" class="cart1"></a>
-        </div>
-        <div class="pro" onclick="window.location.href='sproduct4.aspx';">
-            <img src="img/S4.jpeg" alt="" >
-            <h5>Hill Special Shirt</h5>
-            <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-            </div>
-            <h4>$400</h4>
-            <a href="#"><img src="img/sc.png" alt="" width="10px" class="cart1"></a>
-        </div>
-        <div class="pro" onclick="window.location.href='sproduct5.aspx';">
-            <img src="img/S5.jpg" alt="">
-            <h5>White Fashion Shirt</h5>
-            <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-            </div>
-            <h4>$600</h4>
-            <a href="#"><img src="img/sc.png" alt="" width="10px" class="cart1"></a>
-        </div>
-        <div class="pro" onclick="window.location.href='sproduct6.aspx';">
-            <img src="img/S6.jpg" alt="">
-            <h5>Black Hawaiin Shirt</h5>
-            <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-            </div>
-            <h4>$900</h4>
-            <a href="#"><img src="img/sc.png" alt="" width="10px" class="cart1"></a>
-        </div>
-        <div class="pro" onclick="window.location.href='sproduct8.aspx';">
-            <img src="img/S8.jpg" alt="">
-            <h5>Traditional Shirt</h5>
-            <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-            </div>
-            <h4>$750</h4>
-            <a href="#"><img src="img/sc.png" alt="" width="10px" class="cart1"></a>
-        </div>
-        <div class="pro" onclick="window.location.href='sproduct9.aspx';">
-            <img src="img/S9.jpg" alt="">
-            <h5>Yellow Printed Shirt</h5>
-            <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-            </div>
-            <h4>$650</h4>
-            <a href="#"><img src="img/sc.png" alt="" width="10px" class="cart1"></a>
-        </div>
-        <div class="pro" onclick="window.location.href='sproduct11.aspx';">
-        <img src="img/S11.png" alt="">
-        <h5>Allen Blue Checkered Shirt</h5>
-        <div class="star">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-        </div>
-        <h4>$645</h4>
-        <a href="#"><img src="img/sc.png" alt="" width="10px" class="cart1"></a>
-    </div>
-    <div class="pro" onclick="window.location.href='sproduct23.aspx';">
-        <img src="img/S23.png" alt="">
-        <h5>Black Attractive shirt</h5>
-        <div class="star">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-        </div>
-        <h4>$625</h4>
-        <a href="#"><img src="img/sc.png" alt="" width="10px" class="cart1"></a>
-    </div>
-    <div class="pro" onclick="window.location.href='sproduct24.aspx';">
-        <img src="img/S24.jpg" alt="">
-        <h5>Motif Men's Casual Shirt</h5>
-        <div class="star">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-        </div>
-        <h4>$700</h4>
-        <a href="#"><img src="img/sc.png" alt="" width="10px" class="cart1"></a>
-    </div>
-    <div class="pro" onclick="window.location.href='sproduct16.aspx';">
-        <img src="img/S16.png" alt="">
-        <h5>White Pattern Printed Shirt</h5>
-        <div class="star">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-        </div>
-        <h4>$670</h4>
-        <a href="#"><img src="img/sc.png" alt="" width="10px" class="cart1"></a>
-    </div>
-    <div class="pro" onclick="window.location.href='sproduct17.aspx';">
-        <img src="img/S17.jpeg" alt="">
-        <h5>Green color round printed shirt</h5>
-        <div class="star">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-        </div>
-        <h4>$650</h4>
-        <a href="#"><img src="img/sc.png" alt="" width="10px" class="cart1"></a>
-    </div>
-    <div class="pro" onclick="window.location.href='sproduct18.aspx';">
-        <img src="img/S18.jpg" alt="">
-        <h5>Khad black print shirt</h5>
-        <div class="star">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-        </div>
-        <h4>$750</h4>
-        <a href="#"><img src="img/sc.png" alt="" width="10px" class="cart1"></a>
-    </div>
-    <div class="pro" onclick="window.location.href='sproduct19.aspx';">
-        <img src="img/S19.jpeg" alt="">
-        <h5>Montain climber shirt</h5>
-        <div class="star">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-        </div>
-        <h4>$650</h4>
-        <a href="#"><img src="img/sc.png" alt="" width="10px" class="cart1"></a>
-    </div>
-    <div class="pro" onclick="window.location.href='sproduct20.aspx';">
-        <img src="img/S20.jpeg" alt="">
-        <h5>Black Traditional Shirt</h5>
-        <div class="star">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-        </div>
-        <h4>$670</h4>
-        <a href="#"><img src="img/sc.png" alt="" width="10px" class="cart1"></a>
-    </div>
-    <div class="pro" onclick="window.location.href='sproduct21.aspx';">
-        <img src="img/S21.jpg" alt="">
-        <h5>Nakuma Yellow shirt</h5>
-        <div class="star">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-        </div>
-        <h4>$780</h4>
-        <a href="#"><img src="img/sc.png" alt="" width="10px" class="cart1"></a>
-    </div>
-    <div class="pro" onclick="window.location.href='sproduct22.aspx';">
-        <img src="img/S22.jpeg" alt="">
-        <h5>Puma Multiline shirt</h5>
-        <div class="star">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-        </div>
-        <h4>$800</h4>
-        <a href="#"><img src="img/sc.png" alt="" width="10px" class="cart1"></a>
-    </div>
-    <div class="pro" onclick="window.location.href='sproduct28.aspx';">
-        <img src="img/S28.jpg" alt="">
-        <h5>Puma Multiline shirt</h5>
-        <div class="star">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-        </div>
-        <h4>$900</h4>
-        <a href="#"><img src="img/sc.png" alt="" width="10px" class="cart1"></a>
-    </div>
-    <div class="pro" onclick="window.location.href='sproduct29.aspx';">
-        <img src="img/S29.jpg" alt="">
-        <h5>Demin shirt</h5>
-        <div class="star">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-        </div>
-        <h4>$700</h4>
-        <a href="#"><img src="img/sc.png" alt="" width="10px" class="cart1"></a>
-    </div>
-    </div>
     </form>
 </body>
 </html>

@@ -1,9 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="About_us.aspx.cs" Inherits="About_us" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="About_us2.aspx.cs" Inherits="About_us2" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
     <title>E-commerce Website</title>
     <meta charset="UTF-8 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,20 +21,37 @@
             </div>
             <div class="navitem">
                 <div class="search">
-                    <input type="text" placeholder="Search brand,products" class="searchbox">
-                    <asp:Button ID="Button1" runat="server" CssClass="search-btn" Text="Search" />
+                    <asp:TextBox ID="TextBox1" runat="server" CssClass="searchbox"></asp:TextBox>
+&nbsp;<asp:Button ID="Button2" runat="server" CssClass="search-btn" 
+                        Text="Search" />
                     
-                    <a href="Login.aspx"><img src="img/sig.png" alt="" width="40px" class="sign"></a>
-                    <a href=""><img src="img/ca.png" alt="" width="50px" class="cart"></a>
+                    &nbsp;<a href="Login.aspx"><asp:Button ID="Button1" 
+                        runat="server" Text="Logout" 
+                        onclick="Button1_Click" Width="83px" Height="42px" CssClass="btnn"></asp:Button></a>
+                    &nbsp;<a href="Addtocart.aspx"><img src="img/ca.png" alt="" width="50px" class="cart"></a>
+                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                    <br />
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+                        ConnectionString="<%$ ConnectionStrings:addcartConnectionString6 %>" 
+                        SelectCommand="SELECT * FROM [adcar]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
+                        ConnectionString="<%$ ConnectionStrings:addcartConnectionString6 %>" 
+                        SelectCommand="SELECT * FROM [adcar] WHERE ([keywordSearch] LIKE '%' + @keywordSearch + '%')">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="TextBox1" Name="keywordSearch" 
+                                PropertyName="Text" Type="String" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                    <br />
                 </div> 
             </div>
         </div>
         <ul class="navcontain">
-            <li><a href="index.aspx">Home</a></li>
-            <li><a href="prod.aspx">Products</a></li>
-            <li><a href="newarr.aspx">New Arrivals</a></li>
-            <li><a class="active" href="About_us.aspx">About Us</a></li>
-            <li><a href="Contact.aspx">Contacts</a></li>
+            <li><a href="index2.aspx">Home</a></li>
+            <li><a href="prod2.aspx">Products</a></li>
+            <li><a href="newarr2.aspx">New Arrivals</a></li>
+            <li><a class="active" href="About_us2.aspx">About Us</a></li>
+            <li><a href="Contact2.aspx">Contacts</a></li>
         </ul>
     </nav>
     <div class="products">
@@ -61,18 +78,18 @@ Connect with Fashion Men's Wear !!!!</h3>
                         <div class="footer-col">
                             <h4>Company</h4>
                             <ul>
-                                <li><a href="About_us.aspx">about us</a></li>
-                                <li><a href="Contact.aspx">Contacts</a></li>
-                                <li><a href="index.aspx">program</a></li>
+                                <li><a href="About_us2.aspx">about us</a></li>
+                                <li><a href="Contact2.aspx">Contacts</a></li>
+                                <li><a href="index2.aspx">program</a></li>
                             </ul>
                         </div>
                         
                         <div class="footer-col">
                             <h4>online shop</h4>
                             <ul>
-                                <li><a href="Shirts.aspx">Shirt</a></li>
-                                <li><a href="T-Shirts.aspx">T-Shirt</a></li>
-                                <li><a href="Pants.aspx">Pants</a></li>
+                                <li><a href="Shirt.aspx">Shirt</a></li>
+                                <li><a href="T-Shirt.aspx">T-Shirt</a></li>
+                                <li><a href="Pant.aspx">Pants</a></li>
                             </ul>
                         </div>
                         <div class="footer-col">
@@ -91,3 +108,4 @@ Connect with Fashion Men's Wear !!!!</h3>
     </form>
 </body>
 </html>
+

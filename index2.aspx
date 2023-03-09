@@ -1,16 +1,36 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Pants.aspx.cs" Inherits="Pants" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="index2.aspx.cs" Inherits="index2" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
     <title>E-commerce Website</title>
     <meta charset="UTF-8 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"/>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <style type="text/css">
+        .style1
+        {
+            width: 99%;
+            height: 489px;
+            margin-top: 0px;
+        }
+        .style3
+        {
+            height: 256px;
+        }
+        .style4
+        {
+            height: 29px;
+        }
+        .style6
+        {
+            height: 28px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -21,28 +41,91 @@
             </div>
             <div class="navitem">
                 <div class="search">
-                    <input type="text" placeholder="Search brand,products" class="searchbox">
-                    <button class="search-btn">Search</button>
-                    <a href="Login.aspx"><img src="img/sig.png" alt="" width="40px" class="sign"></a>
-                    <a href="Addtocart.aspx"><img src="img/ca.png" alt="" width="50px" class="cart"></a>
+                    &nbsp;
+                    <asp:TextBox ID="TextBox1" runat="server" placeholder="Search brand,products" CssClass="searchbox" Width="200px"></asp:TextBox>
+&nbsp;<asp:Button ID="Button1" runat="server" CssClass="search-btn" Text="Search" 
+                        onclick="Button1_Click" />
+                    <br />              
+&nbsp;<a href="Login.aspx"><asp:Button 
+                        ID="Button3" runat="server" Text="Logout" Height="42px" 
+                        onclick="Button3_Click" Width="83px" CssClass="btnn"></asp:Button></a>
+                    &nbsp;<a href="Addtocart.aspx"><img src="img/ca.png" alt="" width="50px" class="cart"></a>
+                    <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
+                    <br />
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
+                        ConnectionString="<%$ ConnectionStrings:addcartConnectionString4 %>" 
+                        SelectCommand="SELECT * FROM [adcar]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" 
+                        ConnectionString="<%$ ConnectionStrings:addcartConnectionString4 %>" 
+                        SelectCommand="SELECT * FROM [adcar] WHERE ([keywordSearch] LIKE '%' + @keywordSearch + '%')">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="TextBox1" Name="keywordSearch" 
+                                PropertyName="Text" Type="String" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                    
                 </div> 
             </div>
         </div>
+        <ul class="navcontain" id="menuList">
+            <li><a class="active" href="index2.aspx">Home</a></li>
+            <li><a href="prod2.aspx">Products</a></li>
+            <li><a href="newarr2.aspx">New Arrivals</a></li>
+            <li><a href="About_us2.aspx">About Us</a></li>
+            <li><a href="Contact2.aspx">Contacts</a></li>
+        </ul>
+        <img src="img/menu.jpg" class="menu-icon" width="40px" onclick="togglemenu()"/>     
         </nav>
-        <div class="products">
-            <h2>Pants</h2>
-        </div>
-        <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" 
+
+        <div class="sliderItem">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <asp:AdRotator ID="AdRotator1" runat="server" AdvertisementFile="~/slider.xml" 
+                    CssClass="sliderItem"/> 
+                <asp:Timer ID="Timer1" runat="server" Interval="2500"></asp:Timer>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </div>     
+    <br />
+    <br />
+
+    <div class="imageitem">
+        <a href="Shirt.aspx">
+            <img src="img/SS.jpg" alt="" style="height: 282px; width :693px"/>
+            <div class="caption center">Shirts</div>
+        </a>
+    </div>
+    <div class="imageitem">
+        <a href="T-Shirt.aspx">
+            <img src="img/TS.jpg" alt="" style="height: 282px; width :693px"/>
+            <div class="caption center">T-Shirts</div>
+        </a>
+    </div>
+    <div class="imageitem">
+        <a href="Pant.aspx">
+            <img src="img/PS.jpg" alt="" style="height: 282px; width :693px"/>
+            <div class="caption center">Pants</div>
+        </a>
+    </div>
+    <br />
+    <div class="products">
+        <h2>Featured Products</h2>
+    </div>
+    <div class="pro-container">
+     <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" 
             onitemcommand="DataList1_ItemCommand" RepeatColumns="4" 
             RepeatDirection="Horizontal" style="margin-right: 53px" Width="857px" 
             Height="41px">
             <ItemTemplate>
-            <div style="min-width:230px;border-radius: 25px;border:1px solid #000;cursor:pointer;margin:19px 0 15px 10px; padding:10px 25px;width:263px; height: 507px;">
+            <div style="min-width:230px;border-radius: 25px;border:1px solid #000;cursor:pointer;margin:27px 0 15px 10px; padding:10px 25px;width:263px; height: 524px; background-color: #FFFF99;">
                 &nbsp;<table class="style1">
                     <tr>
                         <td class="style6">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Product ID:
-                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("designid") %>'></asp:Label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("designid") %>' 
+                                Visible="False"></asp:Label>
                         </td>
                     </tr>
                     <tr>
@@ -63,9 +146,8 @@
                             <asp:Label ID="Label3" runat="server" Text='<%# Eval("price") %>'></asp:Label>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:ImageButton ID="ImageButton1" runat="server" 
-                                CommandArgument='<%# Eval("designid") %>' Height="30px" 
-                                ImageUrl="~/img/sc.png" Width="30px" BorderColor="Black" 
-                                onclick="ImageButton1_Click" CssClass="btnn" />
+                                CommandArgument='<%# Eval("designid") %>' CommandName="addtocart" Height="30px" 
+                                ImageUrl="~/img/sc.png" Width="30px" BorderColor="Black" CssClass="btnn" />
                         </td>
                     </tr>
                     <tr>
@@ -94,18 +176,18 @@
                 </div>
             </ItemTemplate>
         </asp:DataList>
+       </div>
         <br />
         <br />
+        <div class="sale">
+                <img src="img/B6.jpeg" alt="" />
+            </div>
+            <br />
+            <br />
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:addcartConnectionString6 %>" 
-            SelectCommand="SELECT * FROM [adcar] WHERE ([Category] = @Category)">
-            <SelectParameters>
-                <asp:QueryStringParameter Name="Category" QueryStringField="cat" 
-                    Type="String" />
-            </SelectParameters>
-        </asp:SqlDataSource>
-    
-    <div class="footer">
+            ConnectionString="<%$ ConnectionStrings:addcartConnectionString2 %>" 
+            SelectCommand="SELECT * FROM [adcar]"></asp:SqlDataSource>
+            <div class="footer">
             <div class="image-section">
                 <img src="img/logo.png" />
             </div>
@@ -115,18 +197,18 @@
                         <div class="footer-col">
                             <h4>Company</h4>
                             <ul>
-                                <li><a href="About_us.aspx">about us</a></li>
-                                <li><a href="Contact.aspx">Contacts</a></li>
-                                <li><a href="index.aspx">program</a></li>
+                                <li><a href="About_us2.aspx">about us</a></li>
+                                <li><a href="Contact2.aspx">Contacts</a></li>
+                                <li><a href="index2.aspx">program</a></li>
                             </ul>
                         </div>
                         
                         <div class="footer-col">
                             <h4>online shop</h4>
                             <ul>
-                                <li><a href="Shirts.aspx">Shirt</a></li>
-                                <li><a href="T-Shirts.aspx">T-Shirt</a></li>
-                                <li><a href="Pants.aspx">Pants</a></li>
+                                <li><a href="Shirt.aspx">Shirt</a></li>
+                                <li><a href="T-Shirt.aspx">T-Shirt</a></li>
+                                <li><a href="Pant.aspx">Pants</a></li>
                             </ul>
                         </div>
                         <div class="footer-col">
@@ -142,6 +224,18 @@
         
 
         </div>
+    <script>
+        var menuList = document.getElementById("menuList");
+        menuList.style.maxHeight = "0px";
+        function togglemenu() {
+            if (menuList.style.maxHeight == "0px") {
+                menuList.style.maxHeight = "130px"
+            }
+            else {
+                menuList.style.maxHeight = "0px";
+            }
+        }
+    </script>
     </form>
 </body>
 </html>
