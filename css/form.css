@@ -129,13 +129,13 @@
 .form2{
     justify-content: center;
     align-items: center;
-    width: 500px;
-    height: 697px;
+    width: 486px;
+    height: 681px;
     position: absolute;
     border-radius: 10px;
-    left: 392px;
+    left: 385px;
     background-color: Gray;
-    bottom: -197px;
+    bottom: -213px;
     padding: 20px 40px;
 }
 
