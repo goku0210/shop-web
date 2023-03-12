@@ -4,7 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using System.Data;
+using System.Data.SqlClient;
 
 public partial class prod : System.Web.UI.Page
 {
@@ -46,7 +47,7 @@ public partial class prod : System.Web.UI.Page
             DataList1.DataBind();
         }
     }
-    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+    protected void ImageButton1_Click1(object sender, ImageClickEventArgs e)
     {
         Response.Redirect("Login.aspx");
     }

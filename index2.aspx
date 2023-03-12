@@ -8,30 +8,11 @@
     <meta charset="UTF-8 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="Shortcut Icon" type="x-icon" href="img/logo1.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"/>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <style type="text/css">
-        .style1
-        {
-            width: 99%;
-            height: 489px;
-            margin-top: 0px;
-        }
-        .style3
-        {
-            height: 256px;
-        }
-        .style4
-        {
-            height: 29px;
-        }
-        .style6
-        {
-            height: 28px;
-        }
-    </style>
-</head>
+    </head>
 <body>
     <form id="form1" runat="server">
     <nav>
@@ -110,6 +91,12 @@
         </a>
     </div>
     <br />
+    <div class="sale">
+                <img src="img/B10.jpg" alt="" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                <img src="img/B11.jpg" alt="" height="500px"/>
+            </div>
+            <br />
+            <br />
     <div class="products">
         <h2>Featured Products</h2>
     </div>
@@ -119,11 +106,11 @@
             RepeatDirection="Horizontal" style="margin-right: 53px" Width="857px" 
             Height="41px">
             <ItemTemplate>
-            <div style="min-width:230px;border-radius: 25px;border:1px solid #000;cursor:pointer;margin:27px 0 15px 10px; padding:10px 25px;width:263px; height: 524px; background-color: #FFFF99;">
+            <div style="min-width:230px;border-radius: 25px;border:1px solid #000;cursor:pointer;margin:27px 0 15px 10px; padding:10px 25px;width:263px; height: 520px; background-color: #FFFF99;">
                 &nbsp;<table class="style1">
                     <tr>
                         <td class="style6">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:Label ID="Label1" runat="server" Text='<%# Eval("designid") %>' 
                                 Visible="False"></asp:Label>
                         </td>
@@ -180,13 +167,23 @@
         <br />
         <br />
         <div class="sale">
-                <img src="img/B6.jpeg" alt="" />
+                <img src="img/B12.jpg" width="300px"  height="300px" alt="" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="img/B13.jpg" alt="" />
+            </div>
+            <br />
+            <br />
+        <div class="sale">
+                <img src="img/B9.jpg" alt="" />
             </div>
             <br />
             <br />
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:addcartConnectionString2 %>" 
-            SelectCommand="SELECT * FROM [adcar]"></asp:SqlDataSource>
+            ConnectionString="<%$ ConnectionStrings:addcartConnectionString6 %>" 
+            SelectCommand="SELECT * FROM [adcar] WHERE ([differ] = @differ)">
+            <SelectParameters>
+                <asp:QueryStringParameter Name="differ" QueryStringField="diff" Type="String" />
+            </SelectParameters>
+    </asp:SqlDataSource>
             <div class="footer">
             <div class="image-section">
                 <img src="img/logo.png" />

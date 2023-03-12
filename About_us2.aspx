@@ -17,7 +17,7 @@
     <nav>
         <div class="navbar">
             <div class="navitem">
-                <a href="Default.aspx"><img src="img/logo.png" width=250px alt=""></a>
+                <a href="index2.aspx"><img src="img/logo.png" width=250px alt=""></a>
             </div>
             <div class="navitem">
                 <div class="search">
@@ -58,7 +58,7 @@
         <h2>ABOUT US</h2>
     </div>
     <div class="content">
-        <h3>Fashion Men's Wear is a Indian brand which was initiated with a thought of making online fashion shopping <br />for men a more engaging and interactive experience. Our purpose is to provide you the best of fashion <br /> and lifestyle at the click of a button from the comfort of your surrounding. Discover our contemporary range of Clothes, <br /> Shirts, Pants, Belts and other Accessories to reinvent your wardrobe every month, fabrics and yarns.<br />
+        <h3>Fashion Men's Wear is a Indian brand which was initiated with a thought of making online fashion shopping <br />for men a more engaging and interactive experience. Our purpose is to provide you the best of fashion <br /> and lifestyle at the click of a button from the comfort of your surrounding. Discover our contemporary range of Clothes, <br /> Shirts, Pants, T-shirts and Jackets to reinvent your wardrobe every month, fabrics and yarns.<br />
 
 handsome man. At Fashion Men's Wear we design our garments with great love <br /> and eye for detail. That same love and attention can also be found in the way we produce our clothing and accessories. <br /> One of our top priorities is to run the business with great sensitivity to the world around us. <br /> We take on the challenge of making fashion more sustainable and improving working conditions in the fashion industry. <br />
 

@@ -38,10 +38,5 @@ public partial class Proddetails2 : System.Web.UI.Page
         }
     }
     
-
-
-    protected void Button2_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Order.aspx");
-    }
+    
 }

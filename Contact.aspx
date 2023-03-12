@@ -17,7 +17,7 @@
     <nav>
         <div class="navbar">
             <div class="navitem">
-                <a href="Default.aspx"><img src="img/logo.png" width=250px alt=""></a>
+                <a href="index.aspx"><img src="img/logo.png" width=250px alt=""></a>
             </div>
             <div class="navitem">
                 <div class="search">

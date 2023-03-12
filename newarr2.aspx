@@ -11,6 +11,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"/>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <style type="text/css">
+        .style1
+        {
+            height: 23px;
+        }
+        .style2
+        {
+            height: 7px;
+        }
+    </style>
     </head>
 <body>
     <form id="form1" runat="server">
@@ -76,10 +86,10 @@
             RepeatDirection="Horizontal" style="margin-right: 53px" Width="857px" 
             Height="41px">
             <ItemTemplate>
-            <div style="min-width:230px;border-radius: 25px;border:1px solid #000;cursor:pointer;margin:27px 0 15px 10px; padding:10px 25px;width:263px; height: 513px; background-color: #FFFF99;">
+            <div style="min-width:230px;border-radius: 25px;border:1px solid #000;cursor:pointer;margin:26px 0 15px 10px; padding:10px 25px;width:263px; height: 513px; background-color: #FFFF99;">
                 &nbsp;<table class="style1">
                     <tr>
-                        <td class="style6">
+                        <td class="style2">
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:Label ID="Label1" runat="server" Text='<%# Eval("designid") %>' 
                                 Visible="False"></asp:Label>

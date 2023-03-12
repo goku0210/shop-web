@@ -11,35 +11,48 @@ public partial class index2 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        DataTable dt = new DataTable();
-        dt = (DataTable)Session["buyitems"];
-        if (dt != null)
+        if (!Page.IsPostBack)
         {
-            Label4.Text = dt.Rows.Count.ToString();
-        }
-        else
-        {
-            Label4.Text = "0";
-        }
-        Session["addproduct"] = "false";
-        if (Session["username"] == null)
-        {
-            if(Request.Form["username"] != null)
+            DataTable dt = new DataTable();
+            dt = (DataTable)Session["buyitems"];
+            if (dt != null)
             {
-                if (checkusername() == true)
+                Label4.Text = dt.Rows.Count.ToString();
+            }
+            else
+            {
+                Label4.Text = "0";
+            }
+            Session["addproduct"] = "false";
+            if (Request.QueryString["diff"] != null)
+            {
+                DataList1.DataSourceID = null;
+                DataList1.DataSource = SqlDataSource1;
+                DataList1.DataBind();
+            }
+            else
+            {
+                Response.Redirect("index2.aspx?diff=prod");
+            }
+            if (Session["username"] == null)
+            {
+                if (Request.Form["username"] != null)
                 {
-                    Session["username"] = Request.Form["username"];
-                    Response.Redirect("index2.aspx");
-                }
-                else
-                {
-                    Response.Redirect("index.aspx?validlogin=false");
+                    if (checkusername() == true)
+                    {
+                        Session["username"] = Request.Form["username"];
+                        Response.Redirect("index2.aspx");
+                    }
+                    else
+                    {
+                        Response.Redirect("index.aspx?validlogin=false");
+                    }
                 }
             }
-        }
-        else
-        {
-            Response.Redirect("index.aspx");
+            else
+            {
+                Response.Redirect("index.aspx");
+            }
         }
     }
     protected void Button3_Click(object sender, EventArgs e)

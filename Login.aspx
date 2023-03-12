@@ -35,7 +35,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<asp:Button 
                     ID="Button1" runat="server" Text="Login" BackColor="Red" 
                     onclick="Button1_Click" Height="52px" Width="79px" CssClass="btnn" 
-                    Font-Bold="True" Font-Size="Large" />
+                    Font-Bold="False" Font-Size="Large" BorderColor="Black" />
                 &nbsp;<p class="link">Don't have an account<br>
                 <a href="Registration.aspx">Sign up </a> here</a></p>
     </div>

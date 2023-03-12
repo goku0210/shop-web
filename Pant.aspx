@@ -21,6 +21,14 @@
         {
             height: 25px;
         }
+        .style4
+        {
+            height: 23px;
+        }
+        .style5
+        {
+            height: 2px;
+        }
     </style>
 </head>
 <body>
@@ -32,7 +40,7 @@
         <nav>
         <div class="navbar">
             <div class="navitem">
-                <img src="img/logo.png" width=250px alt="">
+                <a href="index2.aspx"><img src="img/logo.png" width=250px alt=""></a>
             </div>
             <div class="navitem">
                 <div class="search">
@@ -43,7 +51,7 @@
                     <br />              
 &nbsp;<asp:Button 
                         ID="Button3" runat="server" Height="42px" onclick="Button3_Click" Text="Logout" 
-                        Width="83px" />
+                        Width="83px" CssClass="btnn" />
 &nbsp;
                     <a href="Addtocart.aspx"><img src="img/ca.png" alt="" width="50px" class="cart"></a>
                     <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
@@ -64,6 +72,7 @@
                     </div> 
             </div>
         </div>
+        </nav>
         <ul class="navcontain" id="menuList">
             <li><a class="active" href="index.aspx">Home</a></li>
             <li><a href="prod.aspx">Products</a></li>
@@ -86,18 +95,20 @@
             RepeatDirection="Horizontal" style="margin-right: 53px" Width="857px" 
             Height="41px">
             <ItemTemplate>
-            <div style="min-width:230px;border-radius: 25px;border:1px solid #000;cursor:pointer;margin:19px 0 15px 10px; padding:10px 25px;width:263px; height: 507px; background-color: #FFFF99;">
+            <div style="min-width:230px;border-radius: 25px;border:1px solid #000;cursor:pointer;margin:19px 0 15px 21px; padding:10px 25px;width:259px; height: 507px; background-color: #FFFF99;">
                 &nbsp;<table class="style1">
                     <tr>
-                        <td class="style6">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Product ID:
-                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("designid") %>'></asp:Label>
+                        <td>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("designid") %>' 
+                                Visible="False"></asp:Label>
                         </td>
                     </tr>
                     <tr>
                         <td class="style3">
                             &nbsp;<asp:Image ID="Image1" runat="server" Height="294px" 
-                                ImageUrl='<%# Eval("productimage") %>' Width="265px" />
+                                ImageUrl='<%# Eval("productimage") %>' Width="265px" 
+                                style="margin-top: 0px" />
                             &nbsp;</td>
                     </tr>
                     <tr>

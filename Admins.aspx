@@ -21,24 +21,18 @@
                 <img src="img/logo.png" width="250px" alt="">       
             </div>
             <asp:Button ID="Button2" runat="server" Height="53px" onclick="Button2_Click1" 
-                Text="Logout" Width="119px" />
+                Text="Logout" Width="119px" CssClass="btnn" />
         </div>     
         </div>
         <div class="form2" 
         style="background-color: black; margin-left: 1px; margin-top: 10px;">
                 <h2>Adding Products</h2>
-                <asp:Label ID="Label1" runat="server" Text="Serial number" ForeColor="White" Font-Bold="True" 
-                    Font-Size="Large"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="designid" runat="server" BackColor="White" ForeColor="Black" 
-                    Height="21px" Width="319px"></asp:TextBox>
-                <br />
                 <asp:Label ID="Label2" runat="server" Text="Price" Font-Bold="True" 
                     Font-Size="Large" ForeColor="White"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="price" runat="server" BackColor="White" ForeColor="Black" 
-                    Height="22px" Width="304px"></asp:TextBox>
-&nbsp;<br />
+                <asp:TextBox ID="price" runat="server" BackColor="White" 
+                    ForeColor="Black" Height="21px" Width="307px"></asp:TextBox>
+                <br />
                 <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Size="Large" 
                     ForeColor="White" Text="Product name"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

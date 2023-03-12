@@ -9,7 +9,20 @@ public partial class index : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Session["addproduct"] = "false";
+        if (!IsPostBack)
+        {
+            Session["addproduct"] = "false";
+            if (Request.QueryString["diff"] != null)
+            {
+                DataList1.DataSourceID = null;
+                DataList1.DataSource = SqlDataSource1;
+                DataList1.DataBind();
+            }
+            else
+            {
+                Response.Redirect("index.aspx?diff=prod");
+            }
+        }
     }
     protected void Datalist1_ItemCommand(object source, DataListCommandEventArgs e)
     {
@@ -32,7 +45,7 @@ public partial class index : System.Web.UI.Page
             DataList1.DataBind();
         }
     }
-    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+    protected void ImageButton1_Click1(object sender, ImageClickEventArgs e)
     {
         Response.Redirect("Login.aspx");
     }

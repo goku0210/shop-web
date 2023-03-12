@@ -118,6 +118,10 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <br />
     <br />
+    <div class="sale">
+                <img src="img/B10.jpg" alt="" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                <img src="img/B11.jpg" alt="" height="500px"/>
+            </div>
 &nbsp;<br />
     <br />
     <br />
@@ -127,17 +131,17 @@
     </div>
     <div class="pro-container">
      <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" 
-            onitemcommand="Datalist1_ItemCommand" RepeatColumns="4" 
+             RepeatColumns="4" 
             RepeatDirection="Horizontal" style="margin-right: 53px" Width="857px" 
-            Height="41px" BackColor="White" ForeColor="Black" 
-            >
+            Height="41px" onitemcommand="Datalist1_ItemCommand">
             <ItemTemplate>
-            <div style="min-width:230px;border-radius: 25px;border:1px solid #000;cursor:pointer;margin:19px 0 15px 10px; padding:10px 25px;width:263px; height: 507px; background-color: #FFFF99;">
+            <div style="min-width:230px;border-radius: 25px;border:1px solid #000;cursor:pointer;margin:27px 0 15px 10px; padding:10px 25px;width:263px; height: 520px; background-color: #FFFF99;">
                 &nbsp;<table class="style1">
                     <tr>
                         <td class="style6">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Product ID:
-                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("designid") %>'></asp:Label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("designid") %>' 
+                                Visible="False"></asp:Label>
                         </td>
                     </tr>
                     <tr>
@@ -154,20 +158,22 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="style8">
+                        <td class="style6">
                             <asp:Label ID="Label3" runat="server" Text='<%# Eval("price") %>'></asp:Label>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:ImageButton ID="ImageButton1" runat="server" Height="30px" 
-                                ImageUrl="~/img/sc.png" Width="30px" BorderColor="Black" 
-                                onclick="ImageButton1_Click" CssClass="btnn" />
+                            <asp:ImageButton ID="ImageButton1" runat="server" 
+                                CommandArgument='<%# Eval("designid") %>' CommandName="addtocart" Height="30px" 
+                                ImageUrl="~/img/sc.png" Width="30px" BorderColor="Black" CssClass="btnn" onclick="ImageButton1_Click1" 
+                                 />
                         </td>
                     </tr>
                     <tr>
                         <td>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:Button ID="Button2" runat="server" 
                                 CommandArgument='<%# Eval("designid") %>' CommandName="viewdetails" 
-                                 Text="Product Details" BorderColor="Black" Height="41px" CssClass="btnn" Width="244px" 
-                                 />
+                                 Text="Product Details" BorderColor="Black" Height="41px" CssClass="btnn" 
+                                Width="244px"  />
                             &nbsp; &nbsp;</td>
                     </tr>
                 </table>
@@ -191,14 +197,26 @@
        </div>
         <br />
         <br />
+        <div class="sale">
+                <img src="img/B12.jpg" width="300px"  height="300px" alt="" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="img/B13.jpg" alt="" />
+            </div>
+            <br />
+            <br />
+        <div class="sale">
+                <img src="img/B9.jpg" alt="" />
+            </div>
+            <br />
+            <br />
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:addcartConnectionString2 %>" 
-            SelectCommand="SELECT * FROM [adcar]"></asp:SqlDataSource>
+            ConnectionString="<%$ ConnectionStrings:addcartConnectionString6 %>" 
+            SelectCommand="SELECT * FROM [adcar] WHERE ([differ] = @differ)">
+            <SelectParameters>
+                <asp:QueryStringParameter Name="differ" QueryStringField="diff" Type="String" />
+            </SelectParameters>
+    </asp:SqlDataSource>
             <br />
     <br />
-            <div class="sale">
-                <img src="img/B6.jpeg" alt="" />
-            </div>
             <br />
             <br />
             <div class="footer">

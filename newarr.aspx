@@ -10,14 +10,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"/>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/form.css">
     </head>
 <body>
     <form id="form1" runat="server">
     <nav>
         <div class="navbar">
             <div class="navitem">
-                <a href="Default.aspx"><img src="img/logo.png" width=250px alt=""></a>
+                <a href="index.aspx"><img src="img/logo.png" width=250px alt=""></a>
             </div>
             <div class="navitem">
                 <div class="search">
@@ -125,7 +124,7 @@
                 </div>
             </ItemTemplate>
         </asp:DataList>
-        
+        </div>
   
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
             ConnectionString="<%$ ConnectionStrings:addcartConnectionString6 %>" 

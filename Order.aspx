@@ -40,24 +40,38 @@
         .style8
         {
             width: 86%;
-            height: 183px;
+            height: 119px;
         }
         .style9
         {
-            width: 100px;
+            width: 412px;
+        }
+        .style10
+        {
+            width: 412px;
+            height: 52px;
+        }
+        .style11
+        {
+            height: 52px;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
+    <div class="navbar">
+            <div class="navitem">
+                <a href="index2.aspx"><img src="img/logo.png" width=250px alt=""></a>
+            </div>
+            </div>
     <p style="width: 382px">
         <br />
     </p>
-    <table class="style8">
+    <table class="style8" align="center" border="1">
         <tr>
-            <td class="style9">
+            <td class="style10">
                 Order ID</td>
-            <td>
+            <td class="style11">
                 <asp:Label ID="Label2" runat="server"></asp:Label>
             </td>
         </tr>
@@ -74,8 +88,8 @@
         <br />
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
             BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" 
-            CellPadding="3" ForeColor="Black" GridLines="Vertical" Height="200px" 
-            Width="398px">
+            CellPadding="3" ForeColor="Black" GridLines="Vertical" Height="295px" 
+            Width="943px" style="text-align: center; margin-left: 181px">
             <AlternatingRowStyle BackColor="#CCCCCC" />
             <Columns>
                 <asp:BoundField DataField="sno" HeaderText="Sr No" />
@@ -97,7 +111,7 @@
         <br />
     
     </div>
-    <table border="1" class="style3">
+    <table border="1" class="style3" align="center">
         <tr>
             <td class="style5">
                 Type Your Address</td>
@@ -115,6 +129,7 @@
         </tr>
     </table>
     <br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Button ID="Button1" runat="server" Height="53px" onclick="Button1_Click" 
         Text="Place Order" Width="173px" CssClass="btnn" />
     <br />

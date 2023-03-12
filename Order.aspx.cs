@@ -127,7 +127,7 @@ public partial class Order : System.Web.UI.Page
                 s.Close();
             }
             saveaddress();
-            Response.Redirect("Placeorder.aspx");
+            Response.Redirect("Placedorders.aspx?orderid="+Label2.Text);
     }
 }
 

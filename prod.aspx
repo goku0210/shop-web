@@ -10,14 +10,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"/>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/form.css">
-</head>
+    </head>
 <body>
     <form id="form1" runat="server">
     <nav>
         <div class="navbar">
             <div class="navitem">
-                <img src="img/logo.png" width=250px alt="">
+                <a href="index.aspx"><img src="img/logo.png" width=250px alt=""></a>
             </div>
             <div class="navitem">
                 <div class="search">
@@ -70,18 +69,19 @@
      <div class="products">
         <h2>Products</h2>
     </div>
-        
-        <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" 
+        <div class="pro-container">
+     <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" 
             onitemcommand="DataList1_ItemCommand" RepeatColumns="4" 
             RepeatDirection="Horizontal" style="margin-right: 53px" Width="857px" 
             Height="41px">
             <ItemTemplate>
-            <div style="min-width:230px;border-radius: 25px;border:1px solid #000;cursor:pointer;margin:19px 0 15px 10px; padding:10px 25px;width:263px; height: 507px;">
+            <div style="min-width:230px;border-radius: 25px;border:1px solid #000;cursor:pointer;margin:27px 0 15px 10px; padding:10px 25px;width:263px; height: 520px; background-color: #FFFF99;">
                 &nbsp;<table class="style1">
                     <tr>
                         <td class="style6">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Product ID:
-                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("designid") %>'></asp:Label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("designid") %>' 
+                                Visible="False"></asp:Label>
                         </td>
                     </tr>
                     <tr>
@@ -102,9 +102,9 @@
                             <asp:Label ID="Label3" runat="server" Text='<%# Eval("price") %>'></asp:Label>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:ImageButton ID="ImageButton1" runat="server" 
-                                CommandArgument='<%# Eval("designid") %>' Height="30px" 
-                                ImageUrl="~/img/sc.png" Width="30px" BorderColor="Black" 
-                                onclick="ImageButton1_Click" />
+                                CommandArgument='<%# Eval("designid") %>' CommandName="addtocart" Height="30px" 
+                                ImageUrl="~/img/sc.png" Width="30px" BorderColor="Black" CssClass="btnn" 
+                                onclick="ImageButton1_Click1" />
                         </td>
                     </tr>
                     <tr>
@@ -133,7 +133,7 @@
                 </div>
             </ItemTemplate>
         </asp:DataList>
-        
+       </div>
         <br />
         <br />
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
