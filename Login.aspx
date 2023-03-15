@@ -12,7 +12,7 @@
     <div class="main">      
         <div class="navbar">
             <div class="icon">
-                <img src="img/logo.png" width="250px" alt="">       
+                <a href="index2.aspx"><img src="img/logo.png" width=250px alt=""></a>       
             </div>
         </div>     
         </div>
@@ -20,23 +20,24 @@
                 <h2>Login Here</h2>
 &nbsp;
                 &nbsp;&nbsp;<br />
-&nbsp;<asp:Label ID="Label1" runat="server" Text="User Name" ForeColor="White" Font-Bold="True" 
+                <asp:Label ID="Label1" runat="server" Text="User Name" ForeColor="White" Font-Bold="True" 
                     Font-Size="X-Large"></asp:Label>
-                <asp:TextBox ID="txt_username" runat="server" Width="296px" BackColor="#FFFFCC" 
+                &nbsp;&nbsp;
+                <asp:TextBox ID="txt_username" runat="server" Width="284px" BackColor="#FFFFCC" 
                     BorderColor="#CCCCCC" ForeColor="Black" Height="23px"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <br />
                 <asp:Label ID="Label2" runat="server" Text="Password" Font-Bold="True" 
                     Font-Size="X-Large" ForeColor="White"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;<br />
-                <asp:TextBox ID="txt_password" runat="server" Width="298px" BackColor="White" 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:TextBox ID="txt_password" runat="server" Width="281px" BackColor="White" 
                     BorderColor="White" ForeColor="Black" Height="25px" TextMode="Password"></asp:TextBox>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<asp:Button 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button 
                     ID="Button1" runat="server" Text="Login" BackColor="Red" 
                     onclick="Button1_Click" Height="52px" Width="79px" CssClass="btnn" 
                     Font-Bold="False" Font-Size="Large" BorderColor="Black" />
-                &nbsp;<p class="link">Don't have an account<br>
+                <p class="link">Don't have an account&nbsp;&nbsp;<br /> 
                 <a href="Registration.aspx">Sign up </a> here</a></p>
     </div>
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>

@@ -93,7 +93,7 @@
     <br />
     <div class="sale">
                 <img src="img/B10.jpg" alt="" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-                <img src="img/B11.jpg" alt="" height="500px"/>
+                <a href="newarr2.aspx"><img src="img/B11.jpg" alt="" height="500px"/></a>
             </div>
             <br />
             <br />

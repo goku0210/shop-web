@@ -11,7 +11,6 @@ public partial class Addtocart : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
             if (Session["addproduct"].ToString() == "true")
             {
                 Session["addproduct"] = "false";
@@ -117,5 +116,9 @@ public partial class Addtocart : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         Response.Redirect("Order.aspx");
+    }
+    protected void LinkButton1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("prod2.aspx");
     }
 }

@@ -52,6 +52,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
+    <div class="navbar">
+            <div class="navitem">
+                <img src="img/logo.png" width=250px alt="">
+            </div>
+            </div>
     <p>
         <br />
         Order ID :

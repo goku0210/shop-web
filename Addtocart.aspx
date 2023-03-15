@@ -22,6 +22,8 @@
     <div align="center" style="margin: 0 auto;">
         <h2>You Have Following Product In Your Cart</h2>
 &nbsp;
+        <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btnn" 
+            onclick="LinkButton1_Click" PostBackUrl="~/prod2.aspx">Continue Shopping</asp:LinkButton>
         <br /><br />
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
             BackColor="White" Height="320px" Width="900px" 

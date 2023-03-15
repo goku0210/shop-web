@@ -6,7 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration; 
+using System.Configuration;
+using System.Collections.Specialized;
+using System.Net;
 
 public partial class Order : System.Web.UI.Page
 {
@@ -127,7 +129,6 @@ public partial class Order : System.Web.UI.Page
                 s.Close();
             }
             saveaddress();
-            Response.Redirect("Placedorders.aspx?orderid="+Label2.Text);
     }
 }
 

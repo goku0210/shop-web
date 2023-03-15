@@ -37,6 +37,10 @@ public partial class Proddetails2 : System.Web.UI.Page
             DataList1.DataBind();
         }
     }
-    
-    
+
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        
+    }
 }
