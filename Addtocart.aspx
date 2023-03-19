@@ -16,11 +16,11 @@
     <form id="form1" runat="server">
     <div class="navbar">
             <div class="navitem">
-                <a href="index2.aspx"><img src="img/logo.png" width=250px alt=""></a>
+                <a href="index2.aspx"><img src="img/logo.png" width=250px alt=""></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             </div>
     <div align="center" style="margin: 0 auto;">
-        <h2>You Have Following Product In Your Cart</h2>
+        <h2>You Have Following Product In Your Cart </h2>
 &nbsp;
         <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btnn" 
             onclick="LinkButton1_Click" PostBackUrl="~/prod2.aspx">Continue Shopping</asp:LinkButton>

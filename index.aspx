@@ -5,42 +5,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>E-commerce Website</title>
-    <meta charset="UTF-8 ">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8 "/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"/>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <style type="text/css">
-        .style1
-        {
-            width: 101%;
-            height: 498px;
-        }
-        .style3
-        {
-            height: 256px;
-        }
-        .style4
-        {
-            height: 29px;
-        }
-        .style6
-        {
-            height: 28px;
-        }
-        .style8
-        {
-            height: 7px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
     <form id="form1" runat="server">
     <nav>
         <div class="navbar">
             <div class="navitem">
-                <img src="img/logo.png" width=250px alt="">
+                <img src="img/logo.png" width=250px alt="">&nbsp;&nbsp;
             </div>
             <div class="navitem">
                 <div class="search">

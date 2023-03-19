@@ -7,7 +7,9 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.IO;
 using System.Collections.Specialized;
+using System.Net.Mail;
 using System.Net;
 
 public partial class Order : System.Web.UI.Page
@@ -102,7 +104,7 @@ public partial class Order : System.Web.UI.Page
     }
     public void saveaddress()
     {
-        String updatepass = "insert into orderadd(orderid,address,mobilenumber) values('" + Label2.Text + "','" + TextBox1.Text + "','" + TextBox2.Text + "')";
+        String updatepass = "insert into orderadd(orderid,address,mobilenumber,email) values('" + Label2.Text + "','" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "')";
         String mycon1 = "Data Source=DESKTOP-4LU2SLJ\\SQLEXPRESS;Initial Catalog=addcart;Integrated Security=True";
         SqlConnection s = new SqlConnection(mycon1);
         s.Open();
@@ -114,21 +116,45 @@ public partial class Order : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-            DataTable dt;
-            dt = (DataTable)Session["buyitems"];
-            for (int i = 0; i <= dt.Rows.Count - 1; i++)
-            {
-                String updatepass = "insert into orderdet(orderid,sno,designid,productname,price,dateoforder) values('" + Label2.Text + "','" + dt.Rows[i]["sno"] + "'," + dt.Rows[i]["designid"] + ",'" + dt.Rows[i]["productname"] + "','" + dt.Rows[i]["price"] + "','" + Label3.Text + "')";
-                String mycon1 = "Data Source=DESKTOP-4LU2SLJ\\SQLEXPRESS;Initial Catalog=addcart;Integrated Security=True";
-                SqlConnection s = new SqlConnection(mycon1);
-                s.Open();
-                SqlCommand cmd1 = new SqlCommand();
-                cmd1.CommandText = updatepass;
-                cmd1.Connection = s;
-                cmd1.ExecuteNonQuery();
-                s.Close();
-            }
-            saveaddress();
+        DataTable dt;
+        dt = (DataTable)Session["buyitems"];
+        for (int i = 0; i <= dt.Rows.Count - 1; i++)
+        {
+            String updatepass = "insert into orderdet(orderid,sno,designid,productname,price,dateoforder) values('" + Label2.Text + "','" + dt.Rows[i]["sno"] + "'," + dt.Rows[i]["designid"] + ",'" + dt.Rows[i]["productname"] + "','" + dt.Rows[i]["price"] + "','" + Label3.Text + "')";
+            String mycon1 = "Data Source=DESKTOP-4LU2SLJ\\SQLEXPRESS;Initial Catalog=addcart;Integrated Security=True";
+            SqlConnection s = new SqlConnection(mycon1);
+            s.Open();
+            SqlCommand cmd1 = new SqlCommand();
+            cmd1.CommandText = updatepass;
+            cmd1.Connection = s;
+            cmd1.ExecuteNonQuery();
+            s.Close();
+        }
+        saveaddress();
+        
+        SmtpClient smtp = new SmtpClient();
+        smtp.Host = "smtp.gmail.com";
+        smtp.Port = 587;
+        smtp.Credentials = new System.Net.NetworkCredential("fashionmenswear10@gmail.com", "vemwvhyagfwzfboh");
+        smtp.EnableSsl = true;
+        MailMessage msg = new MailMessage();
+        msg.Subject = "Hello Thanks for Your Order at Fashion Men's Wear";
+        msg.Body = "Hi, Thanks For Your Orderid" + Label2.Text + "has been placed at Fashion Men's Wear. Thanks";
+        string toaddress = TextBox3.Text;
+        msg.To.Add(toaddress);
+        string fromaddress = "Fashion Men's Wear <fashionmenswear10@gmail.com>";
+        msg.From = new MailAddress(fromaddress);
+        try
+        {
+            smtp.Send(msg);
+            Response.Redirect("Placedorders.aspx?orderid=" + Label2.Text);
+            Label2.Text = "";
+            TextBox3.Text = "";
+        }
+        catch
+        {
+            throw;
+        }
     }
 }
 

@@ -43,14 +43,14 @@ public partial class Registration : System.Web.UI.Page
         SmtpClient smtp = new SmtpClient();
         smtp.Host = "smtp.gmail.com";
         smtp.Port = 587;
-        smtp.Credentials = new System.Net.NetworkCredential("gokun0210@gmail.com", "wgmtqvrhstyuqeib");
+        smtp.Credentials = new System.Net.NetworkCredential("fashionmenswear10@gmail.com", "vemwvhyagfwzfboh");
         smtp.EnableSsl = true;
         MailMessage msg = new MailMessage();
         msg.Subject = "Hello " + txt_username.Text + " Thanks for Register at Fashion Men's Wear";
         msg.Body = "Hi, Thanks For Your Registration at Fashion Men's Wear, We will Provide You The Latest Update. Thanks";
         string toaddress = txt_email.Text;
         msg.To.Add(toaddress);
-        string fromaddress = "Fashion Men's Wear <gokun0210@gmail.com>";
+        string fromaddress = "Fashion Men's Wear <fashionmenswear10@gmail.com>";
         msg.From = new MailAddress(fromaddress);
         try
         {

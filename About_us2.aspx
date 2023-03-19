@@ -21,27 +21,12 @@
             </div>
             <div class="navitem">
                 <div class="search">
-                    <asp:TextBox ID="TextBox1" runat="server" CssClass="searchbox"></asp:TextBox>
-&nbsp;<asp:Button ID="Button2" runat="server" CssClass="search-btn" 
-                        Text="Search" />
-                    
-                    &nbsp;<a href="Login.aspx"><asp:Button ID="Button1" 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<a href="Login.aspx"><asp:Button ID="Button1" 
                         runat="server" Text="Logout" 
                         onclick="Button1_Click" Width="83px" Height="42px" CssClass="btnn"></asp:Button></a>
                     &nbsp;<a href="Addtocart.aspx"><img src="img/ca.png" alt="" width="50px" class="cart"></a>
                     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                     <br />
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-                        ConnectionString="<%$ ConnectionStrings:addcartConnectionString6 %>" 
-                        SelectCommand="SELECT * FROM [adcar]"></asp:SqlDataSource>
-                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
-                        ConnectionString="<%$ ConnectionStrings:addcartConnectionString6 %>" 
-                        SelectCommand="SELECT * FROM [adcar] WHERE ([keywordSearch] LIKE '%' + @keywordSearch + '%')">
-                        <SelectParameters>
-                            <asp:ControlParameter ControlID="TextBox1" Name="keywordSearch" 
-                                PropertyName="Text" Type="String" />
-                        </SelectParameters>
-                    </asp:SqlDataSource>
                     <br />
                 </div> 
             </div>

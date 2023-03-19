@@ -19,6 +19,7 @@
         <div class="navbar">
             <div class="navitem">
                 <img src="img/logo.png" width=250px alt="">
+                <asp:Label ID="Label5" runat="server"></asp:Label>
             </div>
             <div class="navitem">
                 <div class="search">

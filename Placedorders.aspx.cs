@@ -24,6 +24,7 @@ public partial class Placedorders : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         exportpdf();
+        Response.Redirect("Placeorder.aspx");
     }
     private void exportpdf()
     {

@@ -37,16 +37,14 @@ public partial class Login : System.Web.UI.Page
 
         bool isAdmin=CheckAdminLogin(username,password);
         bool isUser=CheckUserLogin(username,password);
-        
         if(isAdmin)
         {
             MessageBox.Show("Login Successful. Welcome, Admin");
             Response.Redirect("Admins.aspx");
         }
-        else if(isUser)
+        else if (isUser)
         {
-            MessageBox.Show("Login Successful. Welcome, User");
-            Session["buyitems"] = null;
+            MessageBox.Show("Login Successful. Welcome, User");      
             Response.Redirect("index2.aspx");
         }
         else
