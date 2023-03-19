@@ -10,7 +10,7 @@
     background-position: center;
     background-size: cover;
     background-color:darkgray;
-    height: 109vh;
+    height: 150vh;
 }
 .main1
 {
@@ -33,18 +33,18 @@
 .form{
     justify-content: center;
     align-items: center;
-    width: 300px;
-    height: 529px;
+    width: 493px;
+    height: 571px;
     position: absolute;
     border-radius: 10px;
-    left: 457px;
-    bottom: -41px;
+    left: 450px;
+    bottom: -97px;
     padding: 20px 40px;
 }
 
 .form h2{
     align-items: center;
-    width: 280px;
+    width: 468px;
     font-family: sans-serif;
     text-align: center;
     color: #ff0000;
@@ -81,18 +81,18 @@
 .form1{
     justify-content: center;
     align-items: center;
-    width: 300px;
-    height: 450px;
+    width: 431px;
+    height: 410px;
     position: absolute;
     border-radius: 10px;
-    left: 497px;
-    bottom: 30px;
+    left: 425px;
+    bottom: 67px;
     padding: 20px 40px;
 }
 
 .form1 h2{
     align-items: center;
-    width: 280px;
+    width: 410px;
     font-family: sans-serif;
     text-align: center;
     color: #ff0000;
