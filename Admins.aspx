@@ -32,9 +32,10 @@
         </div>     
         </div>
         <ul class="navcontain" id="menuList">
-            <li><a href="Addtocart.aspx">Orders</a></li>
+            <li><a href="userorder.aspx">Orders</a></li>
             <li><a class="active" href="Admins.aspx">Adding Products</a></li>
         </ul>
+        
         <div class="form2" 
         style="background-color: black; margin-left: 1px; margin-top: 10px;">
                 <h2>Adding Products</h2>
@@ -93,7 +94,7 @@
                      Height="41px" Width="179px" CssClass="btnn" 
                     Font-Bold="True" Font-Size="Large" onclick="Button1_Click" />
                 &nbsp;
-    </div>
+                </div>
     </form>
 </body>
 </html>
