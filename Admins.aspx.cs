@@ -20,7 +20,7 @@ public partial class Admins : System.Web.UI.Page
                 if (checkusername() == true)
                 {
                     Session["username"] = Request.Form["username"];
-                    Response.Redirect("Admin.aspx");
+                    Response.Redirect("Admins.aspx");
                 }
                 else
                 {

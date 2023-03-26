@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 
-public partial class userorder : System.Web.UI.Page
+public partial class yourorder : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -97,7 +97,6 @@ public partial class userorder : System.Web.UI.Page
             }
             else
             {
-
                 dt = (DataTable)Session["buyitems"];
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
@@ -134,7 +133,7 @@ public partial class userorder : System.Web.UI.Page
         }
         return validlogin;
     }
-    protected void Button2_Click(object sender, EventArgs e)
+    protected void Button3_Click(object sender, EventArgs e)
     {
         Session.Abandon();
         Response.Redirect("Login.aspx?signout=true");

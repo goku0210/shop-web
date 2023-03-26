@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 
-public partial class userorder : System.Web.UI.Page
+public partial class user : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -35,20 +35,18 @@ public partial class userorder : System.Web.UI.Page
             DataTable dt = new DataTable();
             DataRow dr;
             dt.Columns.Add("sno");
-            dt.Columns.Add("orderid");
-            dt.Columns.Add("designid");
-            dt.Columns.Add("productname");
-            dt.Columns.Add("price");
-            dt.Columns.Add("dateoforder");
+            dt.Columns.Add("id");
+            dt.Columns.Add("username");
+            dt.Columns.Add("Mobilenum");
+            dt.Columns.Add("email");
             if (Request.QueryString["id"] != null)
             {
                 if (Session["Buyitems"] == null)
                 {
-
                     dr = dt.NewRow();
-                    String mycon = "Data Source=DESKTOP-4LU2SLJ\\SQLEXPRESS;Initial Catalog=addcart;Integrated Security=True";
+                    String mycon = "Data Source=DESKTOP-4LU2SLJ\\SQLEXPRESS;Initial Catalog=userreglog;Integrated Security=True";
                     SqlConnection scon = new SqlConnection(mycon);
-                    String myquery = "select * from orderdet where designid=" + Request.QueryString["id"];
+                    String myquery = "select * from reglog";
                     SqlCommand cmd = new SqlCommand();
                     cmd.CommandText = myquery;
                     cmd.Connection = scon;
@@ -57,11 +55,10 @@ public partial class userorder : System.Web.UI.Page
                     DataSet ds = new DataSet();
                     da.Fill(ds);
                     dr["sno"] = 1;
-                    dr["orderid"] = ds.Tables[0].Rows[0]["orderid"].ToString();
-                    dr["designid"] = ds.Tables[0].Rows[0]["designid"].ToString();
-                    dr["productname"] = ds.Tables[0].Rows[0]["productname"].ToString();
-                    dr["price"] = ds.Tables[0].Rows[0]["price"].ToString();
-                    dr["dateoforder"] = ds.Tables[0].Rows[0]["dateoforder"].ToString();
+                    dr["id"] = ds.Tables[0].Rows[0]["id"].ToString();
+                    dr["username"] = ds.Tables[0].Rows[0]["username"].ToString();
+                    dr["Mobilenum"] = ds.Tables[0].Rows[0]["Mobilenum"].ToString();
+                    dr["email"] = ds.Tables[0].Rows[0]["email"].ToString();
                     dt.Rows.Add(dr);
                     GridView1.DataSource = dt;
                     GridView1.DataBind();
@@ -73,9 +70,9 @@ public partial class userorder : System.Web.UI.Page
                     int sr;
                     sr = dt.Rows.Count;
                     dr = dt.NewRow();
-                    String mycon = "Data Source=DESKTOP-4LU2SLJ\\SQLEXPRESS;Initial Catalog=addcart;Integrated Security=True";
+                    String mycon = "Data Source=DESKTOP-4LU2SLJ\\SQLEXPRESS;Initial Catalog=userreglog;Integrated Security=True";
                     SqlConnection scon = new SqlConnection(mycon);
-                    String myquery = "select * from orderdet where designid=" + Request.QueryString["id"];
+                    String myquery = "select * from reglog";
                     SqlCommand cmd = new SqlCommand();
                     cmd.CommandText = myquery;
                     cmd.Connection = scon;
@@ -84,11 +81,10 @@ public partial class userorder : System.Web.UI.Page
                     DataSet ds = new DataSet();
                     da.Fill(ds);
                     dr["sno"] = sr + 1;
-                    dr["orderid"] = ds.Tables[0].Rows[0]["orderid"].ToString();
-                    dr["designid"] = ds.Tables[0].Rows[0]["designid"].ToString();
-                    dr["productname"] = ds.Tables[0].Rows[0]["productname"].ToString();
-                    dr["price"] = ds.Tables[0].Rows[0]["price"].ToString();
-                    dr["dateoforder"] = ds.Tables[0].Rows[0]["dateoforder"].ToString();
+                    dr["id"] = ds.Tables[0].Rows[0]["id"].ToString();
+                    dr["username"] = ds.Tables[0].Rows[0]["username"].ToString();
+                    dr["Mobilenum"] = ds.Tables[0].Rows[0]["Mobilenum"].ToString();
+                    dr["email"] = ds.Tables[0].Rows[0]["email"].ToString();
                     dt.Rows.Add(dr);
                     GridView1.DataSource = dt;
                     GridView1.DataBind();
@@ -97,7 +93,6 @@ public partial class userorder : System.Web.UI.Page
             }
             else
             {
-
                 dt = (DataTable)Session["buyitems"];
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
@@ -140,3 +135,4 @@ public partial class userorder : System.Web.UI.Page
         Response.Redirect("Login.aspx?signout=true");
     }
 }
+

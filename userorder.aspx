@@ -20,14 +20,15 @@
                 <img src="img/logo.png" width="250px" alt="">       
             </div>
             <asp:Button ID="Button2" runat="server" Height="53px"  
-                Text="Logout" Width="119px" CssClass="btnn" />
+                Text="Logout" Width="119px" CssClass="btnn" onclick="Button2_Click" />
         </div>     
         </div>
         <ul class="navcontain" id="menuList">
-            <li><a class="active" href="userorder.aspx">Orders</a></li>
             <li><a href="Admins.aspx">Adding Products</a></li>
+            <li><a href="user.aspx">Users</a></li>
+            <li><a class="active" href="userorder.aspx">Orders</a></li>
         </ul>
-        </div>
+        
     <div align="center" style="margin: 0 auto;">
         <h2>User Orders</h2>
 &nbsp;
@@ -82,44 +83,7 @@
     
     <br />
     <br />
-    <div class="footer">
-            <div class="image-section">
-                <img src="img/logo.png" />
-            </div>
-                <div class="con">
-                    <div class="row">
-                        
-                        <div class="footer-col">
-                            <h4>Company</h4>
-                            <ul>
-                                <li><a href="About_us2.aspx">about us</a></li>
-                                <li><a href="Contact2.aspx">Contacts</a></li>
-                                <li><a href="index2.aspx">program</a></li>
-                            </ul>
-                        </div>
-                        
-                        <div class="footer-col">
-                            <h4>online shop</h4>
-                            <ul>
-                                <li><a href="Shirt.aspx">Shirt</a></li>
-                                <li><a href="T-Shirt.aspx">T-Shirt</a></li>
-                                <li><a href="Pant.aspx">Pants</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-col">
-                            <h4>follow us</h4>
-                            <div class="social-links">
-                                <a href="http://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
-                                <a href="http://www.twitter.com"><i class="fab fa-twitter"></i></a>
-                                <a href="http://www.instagram.com"><i class="fab fa-instagram"></i></a>
-                                <a href="http://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>        
-        
-
-        </div>
-    </div>
+    
     </form>
 </body>
 </html>

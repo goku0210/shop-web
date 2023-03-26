@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"/>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="css/form.css">
     <style type="text/css">
         .link
         {
@@ -32,12 +31,12 @@
         </div>     
         </div>
         <ul class="navcontain" id="menuList">
-            <li><a href="userorder.aspx">Orders</a></li>
             <li><a class="active" href="Admins.aspx">Adding Products</a></li>
+            <li><a href="user.aspx">Users</a></li>
+            <li><a href="userorder.aspx">Orders</a></li>
         </ul>
-        
-        <div class="form2" 
-        style="background-color: black; margin-left: 1px; margin-top: 10px;">
+     
+        <div class="form2">
                 <h2>Adding Products</h2>
                 <asp:Label ID="Label2" runat="server" Text="Price" Font-Bold="True" 
                     Font-Size="Large" ForeColor="White"></asp:Label>
@@ -95,6 +94,8 @@
                     Font-Bold="True" Font-Size="Large" onclick="Button1_Click" />
                 &nbsp;
                 </div>
+                <br />
+                <br />
     </form>
 </body>
 </html>

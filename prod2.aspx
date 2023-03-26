@@ -77,6 +77,7 @@
             <li><a href="newarr2.aspx">New Arrivals</a></li>
             <li><a href="About_us2.aspx">About Us</a></li>
             <li><a href="Contact2.aspx">Contacts</a></li>
+            <li><a href="yourorder.aspx">Your Orders</a></li>
         </ul>
         <img src="img/menu.jpg" class="menu-icon" width="40px" onclick="togglemenu()"/>     
         </nav>
