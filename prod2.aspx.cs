@@ -41,17 +41,17 @@ public partial class prod2 : System.Web.UI.Page
                     if (checkusername() == true)
                     {
                         Session["username"] = Request.Form["username"];
-                        Response.Redirect("index2.aspx");
+                        Response.Redirect("prod2.aspx");
                     }
                     else
                     {
-                        Response.Redirect("index.aspx?validlogin=false");
+                        Response.Redirect("prod.aspx?validlogin=false");
                     }
                 }
             }
             else
             {
-                Response.Redirect("prod.aspx");
+                Label5.Text = Session["username"].ToString();   
             }
         }
     }

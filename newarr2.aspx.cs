@@ -51,7 +51,7 @@ public partial class newarr2 : System.Web.UI.Page
             }
             else
             {
-                Response.Redirect("newarr.aspx");
+                Label5.Text = Session["username"].ToString();   
             }
         }
     }

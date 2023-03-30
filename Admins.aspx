@@ -4,11 +4,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>E-commerce Website</title>
+    <title>Fashion Men's Wear</title>
     <meta charset="UTF-8 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="Shortcut Icon" type="x-icon" href="img/logo1.png" />
+    <link rel="Shortcut Icon" type="x-icon" href="img/logo.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"/>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -24,19 +24,26 @@
     <div class="main1">      
         <div class="navbar">
             <div class="icon">
-                <img src="img/logo.png" width="250px" alt="">       
+                <img src="img/logo.png" alt="" style="width: 235px">&nbsp;       
             </div>
-            <asp:Button ID="Button2" runat="server" Height="53px" onclick="Button2_Click1" 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="Button2" runat="server" Height="53px" onclick="Button2_Click1" 
                 Text="Logout" Width="119px" CssClass="btnn" />
+                &nbsp;&nbsp;<asp:Label ID="Label10" 
+                runat="server" Font-Bold="True" Font-Size="Large"></asp:Label>
         </div>     
         </div>
         <ul class="navcontain" id="menuList">
-            <li><a class="active" href="Admins.aspx">Adding Products</a></li>
+            <li><a class="active" href="Admins.aspx">Dasboard</a></li>
             <li><a href="user.aspx">Users</a></li>
             <li><a href="userorder.aspx">Orders</a></li>
+            <li><a href="usercontact.aspx">User Contacts</a></li>
+            <li><a href="allproducts.aspx">All Products</a></li>
         </ul>
-     
-        <div class="form2">
+        <div class="header" 
+        style="background-position: center bottom; background-image: url('img/Ad.jpg'); background-repeat: inherit; background-attachment: inherit;">
+        <h5>Admin Panel</h5>
+    </div>
+        <div class="form2" style="background-color: #333333; margin-top: 0px;">
                 <h2>Adding Products</h2>
                 <asp:Label ID="Label2" runat="server" Text="Price" Font-Bold="True" 
                     Font-Size="Large" ForeColor="White"></asp:Label>
@@ -93,7 +100,16 @@
                      Height="41px" Width="179px" CssClass="btnn" 
                     Font-Bold="True" Font-Size="Large" onclick="Button1_Click" />
                 &nbsp;
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
                 </div>
+                <br />
+                <br />
                 <br />
                 <br />
     </form>

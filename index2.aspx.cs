@@ -51,7 +51,7 @@ public partial class index2 : System.Web.UI.Page
             }
             else
             {
-                Response.Redirect("index.aspx");
+                Label5.Text = Session["username"].ToString();            
             }
         }
     }

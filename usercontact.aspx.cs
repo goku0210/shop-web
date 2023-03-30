@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 
-public partial class user : System.Web.UI.Page
+public partial class usercontact : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -32,7 +32,7 @@ public partial class user : System.Web.UI.Page
             }
             else
             {
-                Label5.Text = Session["username"].ToString();
+                Label7.Text = Session["username"].ToString();
             }
         }
     }
@@ -66,10 +66,26 @@ public partial class user : System.Web.UI.Page
         }
         return validlogin;
     }
-    protected void Button2_Click(object sender, EventArgs e)
+    protected void Button2_Click1(object sender, EventArgs e)
     {
         Session.Abandon();
         Response.Redirect("Login.aspx?signout=true");
     }
+    protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        Label sno = GridView1.Rows[e.RowIndex].FindControl("Label1") as Label;
+        String mycon = "Data Source=DESKTOP-4LU2SLJ\\SQLEXPRESS;Initial Catalog=addcart;Integrated Security=True";
+        String updatedata = "delete from contact where sno=" + sno.Text;
+        SqlConnection con = new SqlConnection(mycon);
+        con.Open();
+        SqlCommand cmd = new SqlCommand();
+        cmd.CommandText = updatedata;
+        cmd.Connection = con;
+        cmd.ExecuteNonQuery();
+        Label8.Text = "Row Data Has been deleted successfully";
+        GridView1.EditIndex = -1;
+        SqlDataSource1.DataBind();
+        GridView1.DataSource = SqlDataSource1;
+        GridView1.DataBind();
+    }
 }
-

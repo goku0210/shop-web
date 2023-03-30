@@ -51,7 +51,7 @@ public partial class Shirt : System.Web.UI.Page
             }
             else
             {
-                Response.Redirect("Index.aspx");
+                Label5.Text = Session["username"].ToString();
             }
         }
     }

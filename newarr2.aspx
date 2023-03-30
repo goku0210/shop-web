@@ -4,10 +4,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title>E-commerce Website</title>
+    <title>Fashion Men's Wear</title>
     <meta charset="UTF-8 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="Shortcut Icon" type="x-icon" href="img/logo.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"/>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -27,7 +28,7 @@
     <nav>
         <div class="navbar">
             <div class="navitem">
-                <a href="index2.aspx"><img src="img/logo.png" width=250px alt=""></a>
+                <a href="index2.aspx"><img src="img/logo.png" width=250px alt=""></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <div class="navitem">
                 <div class="search">
@@ -39,7 +40,9 @@
 &nbsp;<a href="Login.aspx"><asp:Button 
                         ID="Button3" runat="server" Text="Logout" Height="42px" 
                         onclick="Button3_Click" Width="83px" CssClass="btnn"></asp:Button></a>
-                    &nbsp;<a href="Addtocart.aspx"><img src="img/ca.png" alt="" width="50px" class="cart"></a>
+                    &nbsp;
+                    <asp:Label ID="Label5" runat="server" Font-Bold="True" Font-Size="Large"></asp:Label>
+                    <a href="Addtocart.aspx"><img src="img/ca.png" alt="" width="50px" class="cart"></a>
                     <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
                     <br />
                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" 

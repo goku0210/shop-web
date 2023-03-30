@@ -51,10 +51,11 @@ public partial class Pant : System.Web.UI.Page
             }
             else
             {
-                Response.Redirect("Index.aspx");
+                Label5.Text = Session["username"].ToString();
             }
         }
     }
+                
     protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
     {
         if (e.CommandName == "addtocart")
@@ -64,7 +65,7 @@ public partial class Pant : System.Web.UI.Page
         }
         if (e.CommandName == "viewdetails")
         {
-            Response.Redirect("Proddetails.aspx2?id=" + e.CommandArgument.ToString());
+            Response.Redirect("Proddetails2.aspx?id=" + e.CommandArgument.ToString());
         }
     }
     protected void Button3_Click(object sender, EventArgs e)
@@ -111,4 +112,5 @@ public partial class Pant : System.Web.UI.Page
             DataList1.DataBind();
         }
     }
+   
 }

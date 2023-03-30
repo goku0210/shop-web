@@ -30,7 +30,7 @@ public partial class Admins : System.Web.UI.Page
         }
         else
         {
-            Response.Redirect("Login.aspx");
+            Label10.Text = Session["username"].ToString();
         }
     }
     protected void Button1_Click(object sender, EventArgs e)

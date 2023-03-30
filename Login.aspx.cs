@@ -39,11 +39,13 @@ public partial class Login : System.Web.UI.Page
         bool isUser=CheckUserLogin(username,password);
         if(isAdmin)
         {
+            Session["username"] = username;
             MessageBox.Show("Login Successful. Welcome, Admin");
             Response.Redirect("Admins.aspx");
         }
         else if (isUser)
         {
+            Session["username"] = username;
             MessageBox.Show("Login Successful. Welcome, User");      
             Response.Redirect("index2.aspx");
         }

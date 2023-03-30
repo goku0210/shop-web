@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Fashion Men's Wear</title>
+    <link rel="Shortcut Icon" type="x-icon" href="img/logo.png" />
     <link rel="stylesheet" href="css/form.css">
 </head>
 <body>
@@ -19,29 +20,29 @@
             <div class="form" style="background-color: #333333; margin-left: 0px;">
                 <h2>Register Here</h2>
                 &nbsp;<br />
+                &nbsp;
                 <asp:Label ID="Label1" runat="server" Text="User Name" Font-Bold="True" 
-                    Font-Size="X-Large" ForeColor="White"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txt_username" runat="server" BackColor="White" 
+                    Font-Size="Large" ForeColor="White"></asp:Label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txt_username" runat="server" BackColor="White" 
                     BorderColor="#CCCCCC" ForeColor="Black" Height="25px" Width="296px"></asp:TextBox>
                 <br />
-                <br />
+                &nbsp;
                 <asp:Label ID="Label2" runat="server" Text="Mobile number" Font-Bold="True" 
-                    Font-Size="X-Large" ForeColor="White"></asp:Label>
-&nbsp;
+                    Font-Size="Large" ForeColor="White"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:TextBox ID="txt_num" runat="server" BackColor="White" BorderColor="#CCCCCC" 
                     ForeColor="Black" Height="25px" Width="296px"></asp:TextBox>
                 <br />
-                <br />
+                &nbsp;
                 <asp:Label ID="Label3" runat="server" Text="E-mail" Font-Bold="True" 
-                    Font-Size="X-Large" ForeColor="White"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="txt_email" runat="server" BackColor="White" 
+                    Font-Size="Large" ForeColor="White"></asp:Label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txt_email" runat="server" BackColor="White" 
                     BorderColor="#CCCCCC" ForeColor="Black" Height="25px" Width="296px"></asp:TextBox>
                 <br />
-                <br />
+                &nbsp;
                 <asp:Label ID="Label4" runat="server" Text="Password" Font-Bold="True" 
-                    Font-Size="X-Large" ForeColor="White"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Font-Size="Large" ForeColor="White"></asp:Label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:TextBox ID="txt_password" runat="server" TextMode="Password" 
                     BackColor="White" BorderColor="#CCCCCC" ForeColor="Black" Height="25px" 
                     Width="296px"></asp:TextBox>
@@ -53,9 +54,8 @@
                 <p class="link">Already have an account<br>
                 <a href="Login.aspx">Sign in </a> here</a></p>
                 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                
-                <asp:Label ID="Label5" runat="server"></asp:Label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="Label5" runat="server" 
+                    Font-Bold="True" Font-Size="Large" ForeColor="White"></asp:Label>
                 
     </div>
                 <br />
@@ -63,6 +63,8 @@
                 <br />
                 <br />        
             </div>
+    <p>
+        &nbsp;</p>
     </form>
 </body>
 </html>

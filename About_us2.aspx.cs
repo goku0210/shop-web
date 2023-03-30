@@ -38,7 +38,7 @@ public partial class About_us2 : System.Web.UI.Page
         }
         else
         {
-            Response.Redirect("About_us.aspx");
+            Label2.Text = Session["username"].ToString(); 
         }
     }
     protected void Button1_Click(object sender, EventArgs e)

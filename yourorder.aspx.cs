@@ -13,6 +13,18 @@ public partial class yourorder : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            DataTable dt = new DataTable();
+            dt = (DataTable)Session["buyitems"];
+            if (dt != null)
+            {
+                Label14.Text = dt.Rows.Count.ToString();
+            }
+            else
+            {
+                Label14.Text = "0";
+            }
+            GridView1.DataSource = SqlDataSource1;
+            GridView1.DataBind();
             if (Session["username"] == null)
             {
                 if (Request.Form["username"] != null)
@@ -20,7 +32,7 @@ public partial class yourorder : System.Web.UI.Page
                     if (checkusername() == true)
                     {
                         Session["username"] = Request.Form["username"];
-                        Response.Redirect("Admins.aspx");
+                        Response.Redirect("yourorder.aspx");
                     }
                     else
                     {
@@ -30,77 +42,9 @@ public partial class yourorder : System.Web.UI.Page
             }
             else
             {
-                Response.Redirect("Login.aspx");
+                Label5.Text = Session["username"].ToString(); 
             }
-            DataTable dt = new DataTable();
-            DataRow dr;
-            dt.Columns.Add("sno");
-            dt.Columns.Add("orderid");
-            dt.Columns.Add("designid");
-            dt.Columns.Add("productname");
-            dt.Columns.Add("price");
-            dt.Columns.Add("dateoforder");
-            if (Request.QueryString["id"] != null)
-            {
-                if (Session["Buyitems"] == null)
-                {
-
-                    dr = dt.NewRow();
-                    String mycon = "Data Source=DESKTOP-4LU2SLJ\\SQLEXPRESS;Initial Catalog=addcart;Integrated Security=True";
-                    SqlConnection scon = new SqlConnection(mycon);
-                    String myquery = "select * from orderdet where designid=" + Request.QueryString["id"];
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.CommandText = myquery;
-                    cmd.Connection = scon;
-                    SqlDataAdapter da = new SqlDataAdapter();
-                    da.SelectCommand = cmd;
-                    DataSet ds = new DataSet();
-                    da.Fill(ds);
-                    dr["sno"] = 1;
-                    dr["orderid"] = ds.Tables[0].Rows[0]["orderid"].ToString();
-                    dr["designid"] = ds.Tables[0].Rows[0]["designid"].ToString();
-                    dr["productname"] = ds.Tables[0].Rows[0]["productname"].ToString();
-                    dr["price"] = ds.Tables[0].Rows[0]["price"].ToString();
-                    dr["dateoforder"] = ds.Tables[0].Rows[0]["dateoforder"].ToString();
-                    dt.Rows.Add(dr);
-                    GridView1.DataSource = dt;
-                    GridView1.DataBind();
-                    Session["buyitems"] = dt;
-                }
-                else
-                {
-                    dt = (DataTable)Session["buyitems"];
-                    int sr;
-                    sr = dt.Rows.Count;
-                    dr = dt.NewRow();
-                    String mycon = "Data Source=DESKTOP-4LU2SLJ\\SQLEXPRESS;Initial Catalog=addcart;Integrated Security=True";
-                    SqlConnection scon = new SqlConnection(mycon);
-                    String myquery = "select * from orderdet where designid=" + Request.QueryString["id"];
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.CommandText = myquery;
-                    cmd.Connection = scon;
-                    SqlDataAdapter da = new SqlDataAdapter();
-                    da.SelectCommand = cmd;
-                    DataSet ds = new DataSet();
-                    da.Fill(ds);
-                    dr["sno"] = sr + 1;
-                    dr["orderid"] = ds.Tables[0].Rows[0]["orderid"].ToString();
-                    dr["designid"] = ds.Tables[0].Rows[0]["designid"].ToString();
-                    dr["productname"] = ds.Tables[0].Rows[0]["productname"].ToString();
-                    dr["price"] = ds.Tables[0].Rows[0]["price"].ToString();
-                    dr["dateoforder"] = ds.Tables[0].Rows[0]["dateoforder"].ToString();
-                    dt.Rows.Add(dr);
-                    GridView1.DataSource = dt;
-                    GridView1.DataBind();
-                    Session["buyitems"] = dt;
-                }
-            }
-            else
-            {
-                dt = (DataTable)Session["buyitems"];
-                GridView1.DataSource = dt;
-                GridView1.DataBind();
-            }
+            
         }
     }
     private Boolean checkusername()
@@ -137,5 +81,22 @@ public partial class yourorder : System.Web.UI.Page
     {
         Session.Abandon();
         Response.Redirect("Login.aspx?signout=true");
+    }
+    protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        Label sno = GridView1.Rows[e.RowIndex].FindControl("Label6") as Label;
+        String mycon = "Data Source=DESKTOP-4LU2SLJ\\SQLEXPRESS;Initial Catalog=addcart;Integrated Security=True";
+        String updatedata = "delete from orderdet where sno=" + sno.Text;
+        SqlConnection con = new SqlConnection(mycon);
+        con.Open();
+        SqlCommand cmd = new SqlCommand();
+        cmd.CommandText = updatedata;
+        cmd.Connection = con;
+        cmd.ExecuteNonQuery();
+        Label13.Text = "Your Order is Successfully Cancelled";
+        GridView1.EditIndex = -1;
+        SqlDataSource1.DataBind();
+        GridView1.DataSource = SqlDataSource1;
+        GridView1.DataBind();
     }
 }

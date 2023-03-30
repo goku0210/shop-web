@@ -4,10 +4,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>E-commerce Website</title>
+    <title>Fashion Men's Wear</title>
     <meta charset="UTF-8 "/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="Shortcut Icon" type="x-icon" href="img/logo.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"/>
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -63,11 +64,25 @@
             <div class="navitem">
                 <a href="index2.aspx"><img src="img/logo.png" width=250px alt=""></a>
             </div>
+            <div class="navitem">
+                <div class="search">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<a href="Login.aspx"><asp:Button ID="Button2" 
+                        runat="server" Text="Logout" 
+                        onclick="Button1_Click" Width="83px" Height="42px" CssClass="btnn"></asp:Button></a>&nbsp;<asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="Large"></asp:Label>
+                        </div>
+                        </div>
             </div>
     <p style="width: 382px">
         <br />
     </p>
     <table class="style8" align="center" border="1">
+        <tr>
+            <td class="style10">
+                Name</td>
+            <td class="style11">
+                <asp:Label ID="Label6" runat="server"></asp:Label>
+            </td>
+        </tr>
         <tr>
             <td class="style10">
                 Order ID</td>

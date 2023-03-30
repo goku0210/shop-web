@@ -18,6 +18,26 @@ public partial class Order : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            if (Session["username"] == null)
+            {
+                if (Request.Form["username"] != null)
+                {
+                    if (checkusername() == true)
+                    {
+                        Session["username"] = Request.Form["username"];
+                        Response.Redirect("Order.aspx");
+                    }
+                    else
+                    {
+                        Response.Redirect("Login.aspx?validlogin=false");
+                    }
+                }
+            }
+            else
+            {
+                Label1.Text = Session["username"].ToString();
+                Label6.Text = Session["username"].ToString();
+            }
             DataTable dt = new DataTable();
             DataRow dr;
             dt.Columns.Add("sno");
@@ -120,7 +140,7 @@ public partial class Order : System.Web.UI.Page
         dt = (DataTable)Session["buyitems"];
         for (int i = 0; i <= dt.Rows.Count - 1; i++)
         {
-            String updatepass = "insert into orderdet(orderid,sno,designid,productname,price,dateoforder) values('" + Label2.Text + "','" + dt.Rows[i]["sno"] + "'," + dt.Rows[i]["designid"] + ",'" + dt.Rows[i]["productname"] + "','" + dt.Rows[i]["price"] + "','" + Label3.Text + "')";
+            String updatepass = "insert into orderdet(username,orderid,address,mobilenumber,email,designid,productname,productimage,price,dateoforder) values('" + Label6.Text + "','" + Label2.Text + "','" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "'," + dt.Rows[i]["designid"] + ",'" + dt.Rows[i]["productname"] + "','" + dt.Rows[i]["productimage"] + "','" + dt.Rows[i]["price"] + "','" + Label3.Text + "')";
             String mycon1 = "Data Source=DESKTOP-4LU2SLJ\\SQLEXPRESS;Initial Catalog=addcart;Integrated Security=True";
             SqlConnection s = new SqlConnection(mycon1);
             s.Open();
@@ -131,30 +151,37 @@ public partial class Order : System.Web.UI.Page
             s.Close();
         }
         saveaddress();
+        Response.Redirect("Placedorders.aspx?orderid=" + Label2.Text);       
+    }
+    private Boolean checkusername()
+    {
+        Boolean validlogin = false;
+        String mycon = "Data Source=DESKTOP-4LU2SLJ\\SQLEXPRESS;Initial Catalog=userreglog;Integrated Security=True";
+        SqlConnection scon = new SqlConnection(mycon);
+        String myquery = "select * from reglog where username='" + Request.Form["username"].ToString() + "'";
+        SqlCommand cmd = new SqlCommand();
+        cmd.CommandText = myquery;
+        cmd.Connection = scon;
+        SqlDataAdapter da = new SqlDataAdapter();
+        da.SelectCommand = cmd;
+        DataSet ds = new DataSet();
+        da.Fill(ds);
+        String username;
+        String password;
+        if (ds.Tables[0].Rows.Count > 0)
+        {
+            username = ds.Tables[0].Rows[0]["username"].ToString();
+            password = ds.Tables[0].Rows[0]["password"].ToString();
+            scon.Close();
 
-        SmtpClient smtp = new SmtpClient();
-        smtp.Host = "smtp.gmail.com";
-        smtp.Port = 587;
-        smtp.Credentials = new System.Net.NetworkCredential("fashionmenswear10@gmail.com", "vemwvhyagfwzfboh");
-        smtp.EnableSsl = true;
-        MailMessage msg = new MailMessage();
-        msg.Subject = "Hello Thanks for Your Order at Fashion Men's Wear";
-        msg.Body = "Hi, Thanks For Your Orderid" + Label2.Text + "has been placed at Fashion Men's Wear. Thanks";
-        string toaddress = TextBox3.Text;
-        msg.To.Add(toaddress);
-        string fromaddress = "Fashion Men's Wear <fashionmenswear10@gmail.com>";
-        msg.From = new MailAddress(fromaddress);
-        try
-        {
-            smtp.Send(msg);
-            Response.Redirect("Placedorders.aspx?orderid=" + Label2.Text);
-            Label2.Text = "";
-            TextBox3.Text = "";
+            if (username == Request.Form["username"].ToString() && password == Request.Form["password"].ToString())
+            {
+                Session["username"] = username;
+                validlogin = true;
+            }
+
         }
-        catch
-        {
-            throw;
-        }
+        return validlogin;
     }
 }
 

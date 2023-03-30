@@ -4,11 +4,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>E-commerce Website</title>
+    <title>Fashion Men's Wear</title>
     <meta charset="UTF-8 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="Shortcut Icon" type="x-icon" href="img/logo1.png" />
+    <link rel="Shortcut Icon" type="x-icon" href="img/logo.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"/>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -19,20 +19,17 @@
         <div class="navbar">
             <div class="navitem">
                 <img src="img/logo.png" width=250px alt="">
-                <asp:Label ID="Label5" runat="server"></asp:Label>
             </div>
             <div class="navitem">
                 <div class="search">
-                    &nbsp;
-                    <asp:TextBox ID="TextBox1" runat="server" placeholder="Search brand,products" CssClass="searchbox" Width="200px"></asp:TextBox>
-&nbsp;<asp:Button ID="Button1" runat="server" CssClass="search-btn" Text="Search" 
-                         />
-                    <br />              
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;<a href="Login.aspx"><asp:Button 
                         ID="Button3" runat="server" Text="Logout" Height="42px" 
                         onclick="Button3_Click" Width="83px" CssClass="btnn"></asp:Button></a>
-                    &nbsp;<a href="Addtocart.aspx"><img src="img/ca.png" alt="" width="50px" class="cart"></a>
-                    <asp:Label ID="Label4" runat="server"></asp:Label>
+                    &nbsp;
+                <asp:Label ID="Label5" runat="server" Font-Bold="True" Font-Size="Large"></asp:Label>
+                    <a href="Addtocart.aspx"><img src="img/ca.png" alt="" width="50px" class="cart"></a>
+                    <asp:Label ID="Label14" runat="server" Text="Label"></asp:Label>
                     </div>
                     </div>
                     </div>
@@ -48,30 +45,72 @@
         </nav>
         <div class="products">
             <h2>Your Orders</h2>
+            <p>
+    <asp:Label ID="Label13" runat="server"></asp:Label>
+            </p>
+            <p>&nbsp;</p>
         </div>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
-            BackColor="White" Height="320px" Width="930px" 
-            style="margin-top: 0px; margin-left: 210px;" 
-            EmptyDataText="No product available in shopping cart" 
+            BackColor="White" Height="320px" Width="966px" 
+            style="margin-top: 0px; margin-left: 192px;" 
+            EmptyDataText="No Orders here Buy now" 
              BorderColor="#999999" 
             BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" 
-            GridLines="Vertical" DataKeyNames="sno" DataSourceID="SqlDataSource1"  
+            GridLines="Vertical" onrowdeleting="GridView1_RowDeleting"  
             >
             <AlternatingRowStyle BackColor="#CCCCCC" />
             <Columns>
-                <asp:BoundField DataField="orderid" HeaderText="orderid" 
-                    SortExpression="orderid"></asp:BoundField>
-                <asp:BoundField DataField="sno" HeaderText="sno" 
-                    SortExpression="sno" InsertVisible="False" ReadOnly="True">
-                </asp:BoundField>
-                <asp:BoundField DataField="designid" HeaderText="designid" 
-                    SortExpression="designid"></asp:BoundField>
-                <asp:BoundField DataField="productname" HeaderText="productname" 
-                    SortExpression="productname"></asp:BoundField>
-                <asp:BoundField DataField="price" HeaderText="price" SortExpression="price">
-                </asp:BoundField>
-                <asp:BoundField DataField="dateoforder" HeaderText="dateoforder" 
-                    SortExpression="dateoforder"></asp:BoundField>
+                <asp:TemplateField HeaderText="Sr No">
+                    <ItemTemplate>
+                        <asp:Label ID="Label6" runat="server" style="text-align: center" 
+                            Text='<%# Eval("sno") %>'></asp:Label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center" />
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Order ID">
+                    <ItemTemplate>
+                        <asp:Label ID="Label7" runat="server" style="text-align: center" 
+                            Text='<%# Eval("orderid") %>'></asp:Label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center" />
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Product ID">
+                    <ItemTemplate>
+                        <asp:Label ID="Label8" runat="server" Text='<%# Eval("designid") %>'></asp:Label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center" />
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Product Name">
+                    <ItemTemplate>
+                        <asp:Label ID="Label9" runat="server" style="text-align: center" 
+                            Text='<%# Eval("productname") %>'></asp:Label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center" />
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Product Image">
+                    <ItemTemplate>
+                        <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("productimage") %>' />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Price">
+                    <ItemTemplate>
+                        <asp:Label ID="Label11" runat="server" style="text-align: center" 
+                            Text='<%# Eval("price") %>'></asp:Label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center" />
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Date Of Order">
+                    <ItemTemplate>
+                        <asp:Label ID="Label12" runat="server" style="text-align: center" 
+                            Text='<%# Eval("dateoforder") %>'></asp:Label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center" />
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Operations">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="LinkButton1" runat="server" CommandName="Delete">Cancel Order</asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
             <FooterStyle BackColor="#CCCCCC" />
             <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
@@ -82,10 +121,16 @@
             <SortedDescendingCellStyle BackColor="#CAC9C9" />
             <SortedDescendingHeaderStyle BackColor="#383838" />
         </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:addcartConnectionString8 %>" 
-        SelectCommand="SELECT * FROM [orderdet]"></asp:SqlDataSource>
+    <br />
+    <br />
         <br />
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:addcartConnectionString8 %>" 
+        SelectCommand="SELECT * FROM [orderdet] WHERE ([username] = @username)">
+            <SelectParameters>
+                <asp:SessionParameter Name="username" SessionField="username" Type="String" />
+            </SelectParameters>
+    </asp:SqlDataSource>
         <br />
         <div class="footer">
             <div class="image-section">

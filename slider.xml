@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Advertisements>
   <Ad>
-    <ImageUrl>http://localhost:52488/ShoppingWebsite/img/IBA.webp</ImageUrl>
-  </Ad>
-  <Ad>
     <ImageUrl>http://localhost:52488/ShoppingWebsite/img/B1S.jpg</ImageUrl>
   </Ad>
   <Ad>

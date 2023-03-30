@@ -51,7 +51,7 @@ public partial class T_Shirt : System.Web.UI.Page
             }
             else
             {
-                Response.Redirect("Index.aspx");
+                Label5.Text = Session["username"].ToString();
             }
         }
     }
@@ -64,7 +64,7 @@ public partial class T_Shirt : System.Web.UI.Page
         }
         if (e.CommandName == "viewdetails")
         {
-            Response.Redirect("Proddetails.aspx?id=" + e.CommandArgument.ToString());
+            Response.Redirect("Proddetails2.aspx?id=" + e.CommandArgument.ToString());
         }
     }
     protected void Button3_Click(object sender, EventArgs e)

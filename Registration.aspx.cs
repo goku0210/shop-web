@@ -38,7 +38,6 @@ public partial class Registration : System.Web.UI.Page
         // Close the database connection
         conn.Close();
         Label5.Text = "You have Successfully Registered - Thank You";
-        
 
         SmtpClient smtp = new SmtpClient();
         smtp.Host = "smtp.gmail.com";
@@ -55,7 +54,7 @@ public partial class Registration : System.Web.UI.Page
         try
         {
             smtp.Send(msg);
-            Label5.Text = "Your Email Has Been Registered with Us";
+            Label5.Text = "You have Successfully Registered - Thank You";
             txt_username.Text = "";
             txt_email.Text = "";
         }
