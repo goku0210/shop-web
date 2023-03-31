@@ -29,32 +29,32 @@ public partial class Login : System.Web.UI.Page
     {
         
     }
-    protected void Button1_Click(object sender, EventArgs e)
+    protected void Button1_Click1(object sender, EventArgs e)
     {
-        String username, password;
-        username = txt_username.Text;
-        password = txt_password.Text;
+            String username, password;
+            username = txt_username.Text;
+            password = txt_password.Text;
 
-        bool isAdmin=CheckAdminLogin(username,password);
-        bool isUser=CheckUserLogin(username,password);
-        if(isAdmin)
-        {
-            Session["username"] = username;
-            MessageBox.Show("Login Successful. Welcome, Admin");
-            Response.Redirect("Admins.aspx");
+            bool isAdmin = CheckAdminLogin(username, password);
+            bool isUser = CheckUserLogin(username, password);
+            if (isAdmin)
+            {
+                Session["username"] = username;
+                MessageBox.Show("Login Successful. Welcome, Admin");
+                Response.Redirect("Admins.aspx");
+            }
+            else if (isUser)
+            {
+                Session["username"] = username;
+                MessageBox.Show("Login Successful. Welcome, User");
+                Response.Redirect("index2.aspx");
+            }
+            else
+            {
+                // Login failed
+                MessageBox.Show("Invalid username or password.");
+            }
         }
-        else if (isUser)
-        {
-            Session["username"] = username;
-            MessageBox.Show("Login Successful. Welcome, User");      
-            Response.Redirect("index2.aspx");
-        }
-        else
-        {
-            // Login failed
-            MessageBox.Show("Invalid username or password.");
-        }
-    }
     private bool CheckAdminLogin(string username, string password)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
@@ -104,4 +104,8 @@ public partial class Login : System.Web.UI.Page
                 }
             }
         }
-    }
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Forgotpass.aspx");
+        }
+}

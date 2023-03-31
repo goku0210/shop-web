@@ -71,5 +71,22 @@ public partial class user : System.Web.UI.Page
         Session.Abandon();
         Response.Redirect("Login.aspx?signout=true");
     }
+    protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        Label id = GridView1.Rows[e.RowIndex].FindControl("Label1") as Label;
+        String mycon = "Data Source=DESKTOP-4LU2SLJ\\SQLEXPRESS;Initial Catalog=userreglog;Integrated Security=True";
+        String updatedata = "delete from reglog where id=" + id.Text;
+        SqlConnection con = new SqlConnection(mycon);
+        con.Open();
+        SqlCommand cmd = new SqlCommand();
+        cmd.CommandText = updatedata;
+        cmd.Connection = con;
+        cmd.ExecuteNonQuery();
+        Label7.Text = "User account is cancelled";
+        GridView1.EditIndex = -1;
+        SqlDataSource1.DataBind();
+        GridView1.DataSource = SqlDataSource1;
+        GridView1.DataBind();
+    }
 }
 

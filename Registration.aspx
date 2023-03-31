@@ -20,44 +20,43 @@
             <div class="form" style="background-color: #333333; margin-left: 0px;">
                 <h2>Register Here</h2>
                 &nbsp;<br />
-                &nbsp;
-                <asp:Label ID="Label1" runat="server" Text="User Name" Font-Bold="True" 
+                &nbsp;<asp:Label ID="Label1" runat="server" Text="User Name" Font-Bold="True" 
                     Font-Size="Large" ForeColor="White"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txt_username" runat="server" BackColor="White" 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txt_username" runat="server" BackColor="White" 
                     BorderColor="#CCCCCC" ForeColor="Black" Height="25px" Width="296px"></asp:TextBox>
                 <br />
-                &nbsp;
-                <asp:Label ID="Label2" runat="server" Text="Mobile number" Font-Bold="True" 
+                &nbsp;<asp:Label ID="Label3" runat="server" Text="E-mail" Font-Bold="True" 
                     Font-Size="Large" ForeColor="White"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="txt_num" runat="server" BackColor="White" BorderColor="#CCCCCC" 
-                    ForeColor="Black" Height="25px" Width="296px"></asp:TextBox>
-                <br />
-                &nbsp;
-                <asp:Label ID="Label3" runat="server" Text="E-mail" Font-Bold="True" 
-                    Font-Size="Large" ForeColor="White"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txt_email" runat="server" BackColor="White" 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txt_email" runat="server" BackColor="White" 
                     BorderColor="#CCCCCC" ForeColor="Black" Height="25px" Width="296px"></asp:TextBox>
                 <br />
-                &nbsp;
-                <asp:Label ID="Label4" runat="server" Text="Password" Font-Bold="True" 
+                &nbsp;<asp:Label ID="Label4" runat="server" Text="Password" Font-Bold="True" 
                     Font-Size="Large" ForeColor="White"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:TextBox ID="txt_password" runat="server" TextMode="Password" 
                     BackColor="White" BorderColor="#CCCCCC" ForeColor="Black" Height="25px" 
                     Width="296px"></asp:TextBox>
                 <br />
+                <asp:Label ID="Label6" runat="server" Font-Bold="True" Font-Size="Large" 
+                    ForeColor="White" Text="Confirm Password"></asp:Label>
+&nbsp;
+                <asp:TextBox ID="txt_conpassword" runat="server" TextMode="Password" 
+                    BackColor="White" BorderColor="#CCCCCC" ForeColor="Black" Height="25px" 
+                    Width="296px"></asp:TextBox>
+                <br />
+                &nbsp;&nbsp;
+                <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="Label5" runat="server" 
+                    Font-Bold="True" Font-Size="Large" ForeColor="White"></asp:Label>
+                
+                <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="Button1" runat="server" Text="Submit" BackColor="Red" 
                     onclick="Button1_Click" CssClass="btnn" Font-Bold="True" Font-Size="Large" 
                     Height="52px" Width="79px"/>
-                <br />
                 <p class="link">Already have an account<br>
                 <a href="Login.aspx">Sign in </a> here</a></p>
                 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="Label5" runat="server" 
-                    Font-Bold="True" Font-Size="Large" ForeColor="White"></asp:Label>
-                
-    </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
                 <br />
                 <br />
                 <br />

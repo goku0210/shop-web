@@ -40,6 +40,9 @@
         
         <div align="center" style="margin: 0 auto;">
             <h2>&nbsp;Users </h2>
+            <p>
+                <asp:Label ID="Label7" runat="server" Font-Bold="True" Font-Size="Large"></asp:Label>
+            </p>
 
     <ul class="navcontain" id="menuList">   
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
@@ -48,7 +51,7 @@
             EmptyDataText="No product available in shopping cart" 
              BorderColor="#999999" 
             BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" 
-            GridLines="Vertical">
+            GridLines="Vertical" onrowdeleting="GridView1_RowDeleting">
             <AlternatingRowStyle BackColor="#CCCCCC" />
             <Columns>
                 <asp:TemplateField HeaderText="ID">
@@ -63,15 +66,21 @@
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center" />
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Mobile Number">
-                    <ItemTemplate>
-                        <asp:Label ID="Label3" runat="server" Text='<%# Eval("Mobilenum") %>'></asp:Label>
-                    </ItemTemplate>
-                    <ItemStyle HorizontalAlign="Center" />
-                </asp:TemplateField>
                 <asp:TemplateField HeaderText="Email ID">
                     <ItemTemplate>
                         <asp:Label ID="Label4" runat="server" Text='<%# Eval("email") %>'></asp:Label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center" />
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Password">
+                    <ItemTemplate>
+                        <asp:Label ID="Label6" runat="server" Text='<%# Eval("password") %>'></asp:Label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center" />
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Operations">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="LinkButton1" runat="server" CommandName="Delete">Delete</asp:LinkButton>
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center" />
                 </asp:TemplateField>
@@ -92,24 +101,7 @@
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
             ConnectionString="<%$ ConnectionStrings:userreglogConnectionString2 %>" 
             
-            SelectCommand="SELECT [id], [username], [Mobilenum], [email] FROM [reglog]" 
-            DeleteCommand="DELETE FROM [reglog] WHERE [id] = @id" 
-            InsertCommand="INSERT INTO [reglog] ([username], [Mobilenum], [email]) VALUES (@username, @Mobilenum, @email)" 
-            UpdateCommand="UPDATE [reglog] SET [username] = @username, [Mobilenum] = @Mobilenum, [email] = @email WHERE [id] = @id">
-            <DeleteParameters>
-                <asp:Parameter Name="id" Type="Int32" />
-            </DeleteParameters>
-            <InsertParameters>
-                <asp:Parameter Name="username" Type="String" />
-                <asp:Parameter Name="Mobilenum" Type="String" />
-                <asp:Parameter Name="email" Type="String" />
-            </InsertParameters>
-            <UpdateParameters>
-                <asp:Parameter Name="username" Type="String" />
-                <asp:Parameter Name="Mobilenum" Type="String" />
-                <asp:Parameter Name="email" Type="String" />
-                <asp:Parameter Name="id" Type="Int32" />
-            </UpdateParameters>
+            SelectCommand="SELECT * FROM [reglog]">
         </asp:SqlDataSource>
         <br />
     
