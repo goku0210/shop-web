@@ -44,11 +44,8 @@
         <img src="img/menu.jpg" class="menu-icon" width="40px" onclick="togglemenu()"/>     
         </nav>
         <div class="products">
-            <h2>Your Orders</h2>
-            <p>
-    <asp:Label ID="Label13" runat="server"></asp:Label>
-            </p>
-            <p>&nbsp;</p>
+            <h2>Your Orders</h2>      
+    <asp:Label ID="Label13" runat="server"></asp:Label>    
         </div>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
             BackColor="White" Height="320px" Width="966px" 

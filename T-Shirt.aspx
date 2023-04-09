@@ -35,9 +35,6 @@
 <body>
     <form id="form1" runat="server">
     <div>
-    
-        <br />
-        <br />
         <nav>
         <div class="navbar">
             <div class="navitem">
@@ -82,15 +79,9 @@
         </ul>
         <img src="img/menu.jpg" class="menu-icon" width="40px" onclick="togglemenu()"/>     
         </nav>
-    
-        <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <div class="products">
             <h2>T-Shirts</h2>
         </div>
-        <br />
-        <br />
-        <br />
         <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" 
             onitemcommand="DataList1_ItemCommand" RepeatColumns="4" 
             RepeatDirection="Horizontal" style="margin-right: 53px" Width="857px" 

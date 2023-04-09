@@ -43,7 +43,7 @@
     <br />
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
         BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" 
-        CellPadding="3" ForeColor="Black" GridLines="Vertical" Height="328px" 
+        CellPadding="3" ForeColor="Black" GridLines="Vertical" Height="207px" 
         style="margin-left: 145px" Width="1060px" 
         onrowdeleting="GridView1_RowDeleting">
         <AlternatingRowStyle BackColor="#CCCCCC" />

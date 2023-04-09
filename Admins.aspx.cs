@@ -43,6 +43,7 @@ public partial class Admins : System.Web.UI.Page
             productimage.PostedFile.SaveAs(Server.MapPath("~/img/") + filename);
             con.Open();
             SqlCommand cmd = new SqlCommand("Insert into adcar values('" + productname.Text + "', '" + filepath + "', '" + price.Text + "', '" + keywordsearch.Text + "', '" + description.Text + "', '" + smalldes.Text + "', '" + cat.Text + "', '" + diff.Text + "')", con);
+            Label1.Text = "Product Has Been Added";
             cmd.ExecuteNonQuery();
             con.Close();
         }

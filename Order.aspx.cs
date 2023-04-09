@@ -151,7 +151,30 @@ public partial class Order : System.Web.UI.Page
             s.Close();
         }
         saveaddress();
-        Response.Redirect("Placedorders.aspx?orderid=" + Label2.Text);       
+        
+        SmtpClient smtp = new SmtpClient();
+        smtp.Host = "smtp.gmail.com";
+        smtp.Port = 587;
+        smtp.Credentials = new System.Net.NetworkCredential("fashionmenswear10@gmail.com", "vemwvhyagfwzfboh");
+        smtp.EnableSsl = true;
+        MailMessage msg = new MailMessage();
+        msg.Subject = "Hello Thanks for Your Order at Fashion Men's Wear";
+        msg.Body = "Hi " + Label6.Text + "Thanks Your Order OrderID" + Label2.Text + "has been placed at Fashion Men's Wear. Thanks";
+        string toaddress = TextBox3.Text;
+        msg.To.Add(toaddress);
+        string fromaddress = "Fashion Men's Wear <fashionmenswear10@gmail.com>";
+        msg.From = new MailAddress(fromaddress);
+        try
+        {
+            smtp.Send(msg);
+            Response.Redirect("Placedorders.aspx?orderid=" + Label2.Text);
+            Label2.Text = "";
+            TextBox3.Text = "";
+        }
+        catch
+        {
+            throw;
+        }
     }
     private Boolean checkusername()
     {

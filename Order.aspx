@@ -41,7 +41,7 @@
         .style8
         {
             width: 86%;
-            height: 119px;
+            height: 159px;
         }
         .style9
         {
@@ -55,6 +55,15 @@
         .style11
         {
             height: 52px;
+        }
+        .style12
+        {
+            width: 412px;
+            height: 45px;
+        }
+        .style13
+        {
+            height: 45px;
         }
     </style>
 </head>
@@ -84,9 +93,9 @@
             </td>
         </tr>
         <tr>
-            <td class="style10">
+            <td class="style12">
                 Order ID</td>
-            <td class="style11">
+            <td class="style13">
                 <asp:Label ID="Label2" runat="server"></asp:Label>
             </td>
         </tr>

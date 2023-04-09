@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="userorder.aspx.cs" Inherits="userorder" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="userorders.aspx.cs" Inherits="userorders" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -38,78 +38,91 @@
         
     <div align="center" style="margin: 0 auto;">
         <h2>User Orders</h2>
-&nbsp;
-        
-        <br /><br />
+            
+        Go Back TO&nbsp;
+        <asp:LinkButton ID="LinkButton1" runat="server" onclick="LinkButton1_Click">User Orders</asp:LinkButton>
+            
+        <br />
+            
+        <br />
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
-            BackColor="White" Height="309px" Width="1137px" 
-            style="margin-top: 0px; margin-left: 0px;" 
-            EmptyDataText="No Order placed" 
-             BorderColor="#999999" 
-            BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" 
-            GridLines="Vertical" DataKeyNames="sno" DataSourceID="SqlDataSource1" 
-            onselectedindexchanged="GridView1_SelectedIndexChanged">
+            BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" 
+            CellPadding="3" ForeColor="Black" GridLines="Vertical" Height="347px" 
+            Width="1175px" EmptyDataText="No orders has been Placed.">
             <AlternatingRowStyle BackColor="#CCCCCC" />
             <Columns>
-                <asp:BoundField DataField="sno" HeaderText="Sr no" InsertVisible="False" 
-                    ReadOnly="True">
-                <ItemStyle HorizontalAlign="Center" />
-                </asp:BoundField>
-                <asp:BoundField DataField="username" HeaderText="User name">
-                <ItemStyle HorizontalAlign="Center" />
-                </asp:BoundField>
-                <asp:BoundField DataField="mobilenumber" HeaderText="Mobile Number">
-                <ItemStyle HorizontalAlign="Center" />
-                </asp:BoundField>
-                <asp:BoundField DataField="email" HeaderText="Email ID">
-                <ItemStyle HorizontalAlign="Center" />
-                </asp:BoundField>
-                <asp:BoundField DataField="orderid" HeaderText="orderid" Visible="False" />
-                <asp:CommandField SelectText="View Order" ShowSelectButton="True" />
-                <asp:BoundField DataField="address" HeaderText="address" Visible="False" />
-                <asp:BoundField DataField="designid" HeaderText="designid" Visible="False" />
-                <asp:BoundField DataField="productname" HeaderText="Product name" 
-                    Visible="False">
-                <ItemStyle HorizontalAlign="Center" />
-                </asp:BoundField>
-                <asp:ImageField DataImageUrlField="productimage" HeaderText="Product image" 
-                    Visible="False">
-                    <ItemStyle HorizontalAlign="Center" />
-                </asp:ImageField>
-                <asp:BoundField DataField="price" HeaderText="price" SortExpression="price" 
-                    Visible="False" />
-                <asp:BoundField DataField="dateoforder" HeaderText="dateoforder" 
-                    SortExpression="dateoforder" Visible="False" />
+                <asp:TemplateField HeaderText="Sr no">
+                    <ItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("sno") %>'></asp:Label>
+                    </ItemTemplate>
+                    <ItemStyle Width="70px" />
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Order ID">
+                    <ItemTemplate>
+                        <asp:Label ID="Label14" runat="server" Text='<%# Eval("orderid") %>'></asp:Label>
+                    </ItemTemplate>
+                    <ItemStyle Width="80px" />
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Address">
+                    <ItemTemplate>
+                        <asp:Label ID="Label15" runat="server" Text='<%# Eval("address") %>'></asp:Label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center" Width="150px" />
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Product ID">
+                    <ItemTemplate>
+                        <asp:Label ID="Label16" runat="server" Text='<%# Eval("designid") %>'></asp:Label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center" Width="80px" />
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Product Name">
+                    <ItemTemplate>
+                        <asp:Label ID="Label17" runat="server" Text='<%# Eval("productname") %>'></asp:Label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center" Width="150px" />
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Product Image">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("productimage") %>' />
+                    </ItemTemplate>
+                    <ItemStyle Width="80px" />
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Price">
+                    <ItemTemplate>
+                        <asp:Label ID="Label18" runat="server" Text='<%# Eval("price") %>'></asp:Label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center" Width="80px" />
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Date of Order">
+                    <ItemTemplate>
+                        <asp:Label ID="Label19" runat="server" Text='<%# Eval("dateoforder") %>'></asp:Label>
+                    </ItemTemplate>
+                    <ItemStyle Width="80px" />
+                </asp:TemplateField>
             </Columns>
             <FooterStyle BackColor="#CCCCCC" />
             <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
             <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
             <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
             <SortedAscendingCellStyle BackColor="#F1F1F1" />
-            <SortedAscendingHeaderStyle BackColor="#808080" />
+            <SortedAscendingHeaderStyle BackColor="Gray" />
             <SortedDescendingCellStyle BackColor="#CAC9C9" />
             <SortedDescendingHeaderStyle BackColor="#383838" />
         </asp:GridView>
-
+        <br />
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
             ConnectionString="<%$ ConnectionStrings:addcartConnectionString8 %>" 
             
-            SelectCommand="SELECT [sno], [username], [mobilenumber], [email], [orderid], [address], [designid], [productname], [productimage], [price], [dateoforder] FROM [orderdet]">
+            SelectCommand="SELECT [sno], [orderid], [address], [designid], [productname], [productimage], [price], [dateoforder], [username] FROM [orderdet] WHERE ([sno] = @sno)">
+            <SelectParameters>
+                <asp:QueryStringParameter Name="sno" QueryStringField="sno" Type="Int32" />
+            </SelectParameters>
         </asp:SqlDataSource>
-
-        <br />
-
-        <br />
-    
-    </div>
-    
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    
-    
-    
-    <br />
-    <br />
-    
+            
+        </div>
     </form>
 </body>
 </html>

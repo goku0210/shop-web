@@ -39,7 +39,7 @@
     <p>
         
         <div align="center" style="margin: 0 auto;">
-            <h2>&nbsp;Users </h2>
+            <h2>Users </h2>
             <p>
                 <asp:Label ID="Label7" runat="server" Font-Bold="True" Font-Size="Large"></asp:Label>
             </p>
@@ -48,7 +48,7 @@
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
             BackColor="White" Height="320px" Width="914px" 
             style="margin-top: 0px" 
-            EmptyDataText="No product available in shopping cart" 
+            EmptyDataText="No user is available." 
              BorderColor="#999999" 
             BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" 
             GridLines="Vertical" onrowdeleting="GridView1_RowDeleting">

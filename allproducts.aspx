@@ -46,7 +46,10 @@
         Height="320px" onrowcancelingedit="GridView1_RowCancelingEdit" 
         onrowdeleting="GridView1_RowDeleting" onrowediting="GridView1_RowEditing" 
         onrowupdating="GridView1_RowUpdating" 
-                style="text-align: center; margin-left: 10px;" Width="1103px" >
+                style="text-align: center; margin-left: 10px;" Width="1103px" 
+                BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" 
+                CellPadding="3" ForeColor="Black" GridLines="Vertical" >
+        <AlternatingRowStyle BackColor="#CCCCCC" />
         <Columns>
             <asp:TemplateField HeaderText="Product ID">
                 <EditItemTemplate>
@@ -113,24 +116,6 @@
                 </ItemTemplate>
                 <ItemStyle HorizontalAlign="Center" />
             </asp:TemplateField>
-            <asp:TemplateField HeaderText="Category">
-                <EditItemTemplate>
-                    <asp:TextBox ID="TextBox6" runat="server" Text='<%# Eval("Category") %>'></asp:TextBox>
-                </EditItemTemplate>
-                <ItemTemplate>
-                    <asp:Label ID="Label12" runat="server" Text='<%# Eval("Category") %>'></asp:Label>
-                </ItemTemplate>
-                <ItemStyle HorizontalAlign="Center" />
-            </asp:TemplateField>
-            <asp:TemplateField HeaderText="differ">
-                <EditItemTemplate>
-                    <asp:TextBox ID="TextBox8" runat="server" Text='<%# Eval("differ") %>'></asp:TextBox>
-                </EditItemTemplate>
-                <ItemTemplate>
-                    <asp:Label ID="Label13" runat="server" Text='<%# Eval("differ") %>'></asp:Label>
-                </ItemTemplate>
-                <ItemStyle HorizontalAlign="Center" />
-            </asp:TemplateField>
             <asp:TemplateField HeaderText="Operations">
                 <EditItemTemplate>
                     <asp:LinkButton ID="LinkButton3" runat="server" CommandName="update">Update</asp:LinkButton>
@@ -145,6 +130,14 @@
                 <ItemStyle HorizontalAlign="Center" Width="120px" />
             </asp:TemplateField>
         </Columns>
+        <FooterStyle BackColor="#CCCCCC" />
+        <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+        <SortedAscendingHeaderStyle BackColor="#808080" />
+        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+        <SortedDescendingHeaderStyle BackColor="#383838" />
     </asp:GridView>
           
     </div>

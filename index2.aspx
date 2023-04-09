@@ -34,9 +34,6 @@
             &nbsp;<a href="Addtocart.aspx"><img src="img/ca.png" alt="" width="50px" class="cart"></a>
                     <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <br />
-                    <br />
-                    <br />
                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
                         ConnectionString="<%$ ConnectionStrings:addcartConnectionString4 %>" 
                         SelectCommand="SELECT * FROM [adcar]"></asp:SqlDataSource>
@@ -47,8 +44,7 @@
                             <asp:ControlParameter ControlID="TextBox1" Name="keywordSearch" 
                                 PropertyName="Text" Type="String" />
                         </SelectParameters>
-                    </asp:SqlDataSource>
-                    
+                    </asp:SqlDataSource>           
                 </div> 
             </div>
         </div>
@@ -226,18 +222,6 @@
         
 
         </div>
-    <script>
-        var menuList = document.getElementById("menuList");
-        menuList.style.maxHeight = "0px";
-        function togglemenu() {
-            if (menuList.style.maxHeight == "0px") {
-                menuList.style.maxHeight = "130px"
-            }
-            else {
-                menuList.style.maxHeight = "0px";
-            }
-        }
-    </script>
     </form>
 </body>
 </html>

@@ -19,9 +19,8 @@ public partial class Registration : System.Web.UI.Page
     {
 
     }
-    protected void Button1_Click(object sender, EventArgs e)
+    protected void Button1_Click1(object sender, EventArgs e)
     {
-        
         if (checkemail() == true)
         {
             Label5.Text = "Your Email Already Registered with Us";
@@ -31,7 +30,7 @@ public partial class Registration : System.Web.UI.Page
         {
             Label5.Text = "Your Password is Already Taken";
             txt_password.BackColor = System.Drawing.Color.PaleGreen;
-        }   
+        }
         else if (txt_username.Text == "")
         {
             Label5.Text = "Please enter a valid username";
@@ -39,6 +38,7 @@ public partial class Registration : System.Web.UI.Page
         }
         else if (checkPasswordMatch())
         {
+
             SqlConnection conn = new SqlConnection("Data Source=DESKTOP-4LU2SLJ\\SQLEXPRESS;Initial Catalog=userreglog;Integrated Security=True");
             conn.Open();
 
@@ -55,7 +55,7 @@ public partial class Registration : System.Web.UI.Page
 
             // Close the database connection
             conn.Close();
-           
+
             SmtpClient smtp = new SmtpClient();
             smtp.Host = "smtp.gmail.com";
             smtp.Port = 587;
@@ -80,7 +80,7 @@ public partial class Registration : System.Web.UI.Page
                 throw;
             }
         }
-    } 
+    }
     private Boolean checkemail()
     {
         Boolean emailavailable = false;

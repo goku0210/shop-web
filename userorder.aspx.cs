@@ -13,8 +13,7 @@ public partial class userorder : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            GridView1.DataSource = SqlDataSource1;
-            GridView1.DataBind();
+           
             if (Session["username"] == null)
             {
                 if (Request.Form["username"] != null)
@@ -71,4 +70,9 @@ public partial class userorder : System.Web.UI.Page
         Session.Abandon();
         Response.Redirect("Login.aspx?signout=true");
     }
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        string sno = GridView1.SelectedRow.Cells[0].Text;
+        Response.Redirect("userorders.aspx?sno=" + sno);
+    } 
 }
